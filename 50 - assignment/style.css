@@ -1,0 +1,45 @@
+#headerImage{
+    height: 600px;
+    padding: 0px;
+    margin: 0px;
+    padding-top: 50px;
+
+}
+
+.call-to-action{
+    align-items: center;
+    background: #333333;
+    color: white;
+    display: flex;
+    height:80px;
+    justify-content: center;
+
+}
+
+.call-to-action p{
+    align-self:center;
+    background-color: #44c184;
+    border-radius: 2px;
+    margin-left: 20px;
+    padding: 5px 10px;
+}
+
+a:link{
+    color: white;
+}
+
+#section1{
+    margin-top: 50px;
+    display:block;
+    text-align: center;
+}
+
+#sectionTitle{
+    padding-bottom: 40px;
+}
+
+#sectionLine{
+    padding-bottom: 70px;
+    border-color: black;
+    
+}
