@@ -44,7 +44,7 @@
                         <a id="modalSignInButton" href="#" data-toggle="modal" data-target="signUpModal" class="nav-link"><span class="fas fa-user"></span> Sign Up</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#loginModal" data-toggle="modal" id="modalOpenButton" class="nav-link"><span class="fas fa-sign-in-alt"></span> Login</a>
+                        <a href="#" data-toggle="modal" id="modalOpenButton" class="nav-link"><span class="fas fa-sign-in-alt"></span> Login</a>
                     </li>
                 </ul>
             </div>
@@ -56,21 +56,21 @@
         <!--Modal Content-->  
             <form class ="modal-content animate" action="/action.txt">
                 <div class="imageContainer">
-                    <i class="fas fa-user fa-4x"></i>
+                    <i id="loginImage"class="fas fa-user fa-3x"></i>
                 </div>
 
                 <div class="container">
                     <label><b>Username</b></label>
-                    <input type="text" placeholder="Enter Username" required>
+                    <input type="text" placeholder="Enter Username" required> 
 
                     <label><b>Password</b></label>
                     <input type="password" placeholder="Enter Password" required>
 
-                    <button type="submit">Login</button>
+                    <button id="loginButton" type="submit">Login</button> <br>
                     <label>
                         <input type="checkbox" checked="checked" name="remember"> Remember me
                     </label>
-                    <span class="modal-close">X</span>
+                    <span id="closeButton" class="modal-close">X</span>
 
                 </div>
 

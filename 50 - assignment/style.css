@@ -44,24 +44,33 @@
     
 }
 
-.modal{
+.logInModal{
     display: none;
     position: fixed;
-    z-index: 1;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(0,0, 0, 0.5);
     padding-top: 60px;
-
 }
 
 .modal-content{
     background-color: #fefefe;
-    margin: 5px auto;
-    border: 1px solid #888888;
-    width: 80%;
+    margin: 10% auto 15% auto;
+    border: 1px solid #a09797c0;
+    width: 30%;
+    height: 30%;
+    text-align :center;
+    position: relative;
+    justify-content: space-around;
+}
+
+input[type=text], input[type=password]{
+    width: 100%;
+    padding: 5px;
+    margin: 8px;
+    display: inline-block;
 }
 
 .modal-close{
@@ -72,6 +81,16 @@
     color: #000;
     cursor: pointer;
 }
+
+.loginButton{
+    cursor: pointer;
+}
+
+.loginButton:hover{
+    opacity: 0.8;
+}
+
+
 
 
 
