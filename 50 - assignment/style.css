@@ -53,6 +53,18 @@
     height: 100%;
     background-color: rgba(0,0, 0, 0.5);
     padding-top: 60px;
+    
+}
+
+.signUpModal{
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0, 0, 0.5);
+    padding-top: 60px;
 }
 
 .modal-content{
@@ -90,6 +102,19 @@ input[type=text], input[type=password]{
     opacity: 0.8;
 }
 
+.rememberMe{
+    position:absolute;
+    bottom: 0px;
+    right: 0px;
+}
+
+.signUpButton{
+    cursor:pointer;
+}
+
+.signUpButton:hover{
+    opacity: 0.8;
+}
 
 
 

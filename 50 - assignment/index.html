@@ -41,7 +41,7 @@
                 <!--Sign Up/Login Navbar-->
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a id="modalSignInButton" href="#" data-toggle="modal" data-target="signUpModal" class="nav-link"><span class="fas fa-user"></span> Sign Up</a>
+                        <a href="#" data-toggle="modal" id="modalSignInButton" class="nav-link"><span class="fas fa-user"></span> Sign Up</a>
                     </li>
                     <li class="nav-item">
                         <a href="#" data-toggle="modal" id="modalOpenButton" class="nav-link"><span class="fas fa-sign-in-alt"></span> Login</a>
@@ -68,18 +68,42 @@
 
                     <button id="loginButton" type="submit">Login</button> <br>
                     <label>
-                        <input type="checkbox" checked="checked" name="remember"> Remember me
+                        <input id="rememberMe" type="checkbox" checked="checked" name="remember"> Remember me
                     </label>
                     <span id="closeButton" class="modal-close">X</span>
 
                 </div>
-
             </form>
         </div>
 
 
         <!-- Creating a sign up Modal -->
+        <div id="signUpModal" class="modal">
 
+            <!-- Modal Content-->
+            <form class="modal-content animate" action="/action.txt">
+                <div class="imageContainer">
+                    <i class="fas fa-user fa-3x"></i>
+                </div>
+
+                <div class="container">
+                    <label><b>Username</b></label>
+                    <input type="text" placeholder="Enter Username" required>
+
+                    <label><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" required>
+
+                    <label><b>Email Address</b></label>
+                    <input type="text" placeholder="Enter Email Address" required>
+
+                    <button id="signUpButton" type="submit">Sign Up</button>
+                    <label>
+                        <input type="checkbox" checked="checked" name=remember> Remember me
+                    </label>
+                    <span id=closeButton class="modal-close">X</span>
+                </div>
+            </form>
+        </div>
         <!--Header Image-->
         <div class="row">
             <img id="headerImage" class="col 12" src="headImage.png" alt="Personal Trainer">
