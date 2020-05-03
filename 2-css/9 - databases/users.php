@@ -5,12 +5,12 @@ require_once("connect.php");
 //ADD DATA VALIDATION to create function and update function
 function create_User($data){
     $sql="INSERT INTO Users 
-    (first_name, last_name, age, gender, email, username, pswd, street_address, city, country, registered)
-    VALUES( ?,?,?,?,?,?,?,?,?,?)";
+    (first_name, last_name, age, gender, email, username, pswd, street_address, city, postcode, county, registered)
+    VALUES( ?,?,?,?,?,?,?,?,?,?,?)";
 
     //define variables and set to empty values
-    $firstName = $lastName = $age = $email = $gender = "";
-    $first_NameErr = $last_NameErr  = ageErr = $emailErr = $genderErr = "";
+    $firstName = $lastName = $age = $email = $gender = $username = $pswd = "";
+    $first_NameErr = $last_NameErr  = ageErr = $emailErr = $genderErr = $usernameErr = $pswdErr"";
 
     //validating first name
     $firstName = ($_POST["first_name"]);
@@ -36,7 +36,7 @@ function create_User($data){
         
     }
 
-    //validating age
+    //validating age - need to add acceptable add range
 
     $age = ($_POST["age"]);
     if (empty($age)){
@@ -49,6 +49,15 @@ function create_User($data){
     if 
 
     //validate user doesn't already exist
+    $username =($_POST["username"]);
+    if (empty($username)){
+        $usernameErr = "Please enter a username";
+    }
+    if mysqli_num_Rows()
+
+    //validate email
+    
+
 
     $statement = $conn->prepare($sql);
     $statement->bindParam($data["first_name"]);
@@ -59,14 +68,15 @@ function create_User($data){
     $statement->bindParam($data["pswd"]);
     $statement->bindParam($data["street_address"]);
     $statement->bindParam($data["city"]);
-    $statement->bindParam($data["country"]);
+    $statement->bindParam($data["postcode"]);
+    $statement->bindParam($data["county"]);
 
     $result= $conn->query($sql);
 }
 
-
+//Retrieve user function
 function retrieve_User($id){
-    $sql ="SELECT first_name, last_name, age, email, street_address, city, country, registered
+    $sql ="SELECT first_name, last_name, age, email, street_address, city, postcode, county, registered
     FROM Users WHERE id = '$id'";
 
     $result = $conn->query($sql);
@@ -78,10 +88,10 @@ function retrieve_User($id){
         return $result;
 }
 
-//need to create update function - check whether this function is okay
+//update user function
 function update_User($id, $data, $format=NULL){
     $sql ="UPDATE Users 
-    SET first_name = ?, last_name = ?, age = ?, gender =?, email = ?, username = ?, pswd = ?, street_address = ?, city = ?, country = ?
+    SET first_name = ?, last_name = ?, age = ?, gender =?, email = ?, username = ?, pswd = ?, street_address = ?, city = ?, postcode = ?, county = ?
     WHERE id  = '$id'";
 
     $statement = $conn->prepare($sql);
@@ -93,14 +103,19 @@ function update_User($id, $data, $format=NULL){
     $statement->bindParam($data["pswd"]);
     $statement->bindParam($data["street_address"]);
     $statement->bindParam($data["city"]);
-    $statement->bindParam($data["country"]);
+    $statement->bindParam($data["postcode"]);
+    $statement->bindParam($data["county"]);
 
     $result=$conn->query($sql);
 }
 
 
 //need to CREATE A DELETE FUNCTION
+function delete_User($id){
+    $sql ="DROP USER from Users WHERE id = '$id'";
 
+    $result=$conn->query($sql);
+}
 //login function that checks there is no empty username and password
 
 function login($username, $password){
