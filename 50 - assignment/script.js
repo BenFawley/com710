@@ -25,6 +25,28 @@ signUpBtn.onclick = function(){
     signUpBtn.style.display="block";
 }
 
+//Submitting sign up form
+document.getElementById("sign_up_form").addEventListener("submit", addSignUpForm);
+
+function addSignUpForm(){
+    var username = document.getElementById("username").Value;
+    var password = document.getElementById("pswd").Value;
+    var first_name = document.getElementById("fName").Value;
+    var last_name = document.getElementById("lName").Value;
+    var email = document.getElementById("email").Value;
+    var age = document.getElementById("age").Value;
+    var gender = document.getElementById("gender").Value;
+    var street_address = document.getElementById("streetAddress").Value;
+    var city = document.getElementById("city").Value;
+    var postcode = document.getElementById("postcode").Value;
+    var county = document.getElementById("county").Value;
+
+    Xhttp.open("POST", "assignment/users.php", true);
+    xhttp.setRequestHeader("")
+    xhttp.send()
+}
+
+
 
 
 
