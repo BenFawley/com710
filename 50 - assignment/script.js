@@ -29,23 +29,45 @@ signUpBtn.onclick = function(){
 document.getElementById("sign_up_form").addEventListener("submit", addSignUpForm);
 
 function addSignUpForm(){
-    var username = document.getElementById("username").Value;
-    var password = document.getElementById("pswd").Value;
-    var first_name = document.getElementById("fName").Value;
-    var last_name = document.getElementById("lName").Value;
-    var email = document.getElementById("email").Value;
-    var age = document.getElementById("age").Value;
-    var gender = document.getElementById("gender").Value;
-    var street_address = document.getElementById("streetAddress").Value;
-    var city = document.getElementById("city").Value;
-    var postcode = document.getElementById("postcode").Value;
-    var county = document.getElementById("county").Value;
 
-    Xhttp.open("POST", "assignment/users.php", true);
-    xhttp.setRequestHeader("")
-    xhttp.send()
+    var data = new FormData();
+    data.append("username",document.getElementById("username").Value);
+    data.append("password",document.getElementById("pswd").Value);
+    data.append("first_name",document.getElementById("fName").Value);
+    data.append("last_name",document.getElementById("lName").Value);
+    data.append("email",document.getElementById("email").Value);
+    data.append("age",document.getElementById("age").Value);
+    data.append("gender",document.getElementById("gender").Value);
+    data.append("street_address",document.getElementById("streetAddress").Value);
+    data.append("city",document.getElementById("city").Value);
+    data.append("postcode",document.getElementById("postcode").Value);
+    data.append("county",document.getElementById("county").Value);
+
+    data.append("action", "create");
+
+    var xhttp = new XMLHttpRequest();
+    xhhtp.addEventListener("load", e => {
+        //first check response status is 200 (200 = ok)
+        //then display error/success message
+    });
+
+    Xhttp.open("POST", "assignment/user.php", true);
+    xhttp.send(data)
 }
+//-----------------
+document.getElementById('loadData').onclick = function () {
+    
+    var data = new FormData();
+    data.append("name", "Prins");
 
+    var xhttp = new XMLHttpRequest();
+    xhttp.addEventListener("load", e => {
+        document.getElementById("content").innerHTML = e.target.responseText;
+        document.getElementById("status").innerHTML = e.target.status;
+    });
+    xhttp.open("POST", "process.php");
+    xhttp.send(data);
+};
 
 
 

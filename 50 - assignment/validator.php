@@ -1,5 +1,9 @@
 <?php
 
+function check_first_name($firstName){
+
+}
+
 //define variables and set to empty values
 $firstName = $lastName = $age = $email = $gender = $username = $pswd = "";
 $first_NameErr = $last_NameErr  = $ageErr = $emailErr = $genderErr = $usernameErr = $pswdErr = "";
