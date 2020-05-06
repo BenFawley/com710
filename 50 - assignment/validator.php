@@ -4,6 +4,9 @@ function check_first_name($firstName){
 
 }
 
+//CHANGE CODE BELOW TO FUNCTIONS
+
+
 //define variables and set to empty values
 $firstName = $lastName = $age = $email = $gender = $username = $pswd = "";
 $first_NameErr = $last_NameErr  = $ageErr = $emailErr = $genderErr = $usernameErr = $pswdErr = "";
@@ -50,7 +53,6 @@ $username =($_POST["username"]);
 if (empty($username)){
     $usernameErr = "Please enter a username";
 }
-if mysqli_num_Rows()
 
 //validate email
 
