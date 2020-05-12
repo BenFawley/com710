@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,7 +20,7 @@
 <body>
     <header class="container-fluid">
         <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
-            <a class="navbar-brand" href="#">Solent Fitness</a>
+            <a class="navbar-brand" href="#"><img src="logo.png">Solent Fitness</a>
 
             <!--Collapsible Button-->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -54,17 +55,17 @@
         <div id="logInModal" class="modal">
 
         <!--Modal Content-->  
-            <form class ="modal-content animate" action="/action.txt">
+            <form id = "loginForm" class ="modal-content animate" action="/action.txt">
                 <div class="imageContainer">
-                    <i id="loginImage"class="fas fa-user fa-3x"></i>
+                    <i id="loginImage" class="fas fa-user fa-3x"></i>
                 </div>
 
                 <div class="container">
                     <label><b>Username</b></label>
-                    <input type="text" placeholder="Enter Username" required> 
+                    <input type="text" placeholder="Enter Username" id = "uName" required> 
 
                     <label><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" required>
+                    <input type="password" placeholder="Enter Password" id = "pass" required>
 
                     <button id="loginButton" type="submit">Login</button> <br>
                     <label>
@@ -94,37 +95,37 @@
             </div>
 
             <label for="username"><b>Create Username</b></label>
-            <input type="text" placeholder="Enter Username" name=username required>
+            <input type="text" placeholder="Enter Username" id = "username" name=username required>
 
             <label for="pswd"><b>Create Password</b></label>
-            <input type="password" placeholder="Enter Password" name=pswd required>
+            <input type="password" placeholder="Enter Password" id = "pswd" name=pswd required>
 
             <label for="fName"><b>First Name</b></label>
-            <input type="text" placeholder="Enter first name" name="fName" required>
+            <input type="text" placeholder="Enter first name" id = "fName" name="fName" required>
 
             <label for="lName"><b>Last Name</b></label>
-            <input type="text" placeholder="Enter last name" name="lName" required>
+            <input type="text" placeholder="Enter last name" id = "lName" name="lName" required>
 
             <label for="email"><b>Email</b></label>
-            <input type="text" placeholder="Enter Email" name="email" required>
+            <input type="text" placeholder="Enter Email" id = "email" name="email" required>
 
             <label for="age"><b>Age</b></label>
-            <input type="text" placeholder="Enter age" name="age" required>
+            <input type="text" placeholder="Enter age" id = "age" name="age" required>
 
             <label for="gender"><b>Gender</b></label>
-            <input type="text" placeholder="Enter Gender" name="gender">
+            <input type="text" placeholder="Enter Gender" id = "gender" name="gender">
 
             <label for="streetAddress"><b>Street Address</b></label>
-            <input type="text" placeholder="Enter Street Address" name="streetAddress" required> 
+            <input type="text" placeholder="Enter Street Address" id = "streetAddress" name="streetAddress" required> 
 
             <label for="city"><b>City</b></label>
-            <input type="text" placeholder="Enter City" name="city" required>
+            <input type="text" placeholder="Enter City" id = "city" name="city" required>
 
             <label for="postcode"><b>Postcode</b></label>
-            <input type="text" placeholder="Enter Postcode" name="postcode" required>
+            <input type="text" placeholder="Enter Postcode" id = "postcode" name="postcode" required>
 
             <label for="county"><b>County</b></label>
-            <input type="text" placeholder="Enter County" name="county" required>
+            <input type="text" placeholder="Enter County" id = "county" name="county" required>
 
              <button type="submit" class="registerBtn">Sign Up</button>
 
@@ -132,10 +133,10 @@
     </section>
     
     <!-- Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="script.js"></script>
 
 </body>

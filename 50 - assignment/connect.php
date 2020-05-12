@@ -1,14 +1,13 @@
 <?php
 
 function connect(){
-    $server = "localhost";
-    $db = "database name";
+    $db = "Q14795574";
     $username = "Q14795574";
     $password = "eeshuivi";
     $host = "localhost";
 
 try {
-    $conn = new PDO("mysql:host=$host;dbname=$db, $username, $password");
+    $conn = new PDO("mysql:host=$host;dbname=$db", $username, $password);
     return $conn;
 }
 catch(PDOException $e){

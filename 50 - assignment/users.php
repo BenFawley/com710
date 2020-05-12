@@ -1,35 +1,39 @@
 <?php
 
+
 require_once("request.php");
 //require_once("validator.php");
 
 
 if ($action == "create") {
-    create_user($data);
+    create_user($_POST);
 }
 // else if ($action == "update") {
 //     update_user($id, $data);
 // }
 
 
+
+
 //ADD DATA VALIDATION to create function and update function
 function create_user($data){
     global $db;
     $sql="INSERT INTO Users 
-    (first_name, last_name, age, gender, email, username, pswd, street_address, city, postcode, county, registered)
-    VALUES( ?,?,?,?,?,?,?,?,?,?,?)";
-
+    (first_name, last_name, age, gender, email, username, pswd, street_address, city, postcode, county)
+    VALUES(:first_name, :last_name, :age, :gender, :email, :username, :pswd, :street_address, :city, :postcode, :county)";
+    
     $statement = $db->prepare($sql);
-    $statement->bindParam($data["first_name"]);
-    $statement->bindParam($data["last_name"]);
-    $statement->bindParam($data["age"]);
-    $statement->bindParam($data["email"]);
-    $statement->bindParam($data["username"]);
-    $statement->bindParam($data["pswd"]);
-    $statement->bindParam($data["street_address"]);
-    $statement->bindParam($data["city"]);
-    $statement->bindParam($data["postcode"]);
-    $statement->bindParam($data["county"]);
+    $statement->bindValue(":first_name", $data["first_name"]);
+    $statement->bindValue(":last_name", $data["last_name"]);
+    $statement->bindValue(":age", $data["age"]);
+    $statement->bindValue(":gender", $data["gender"]);
+    $statement->bindValue(":email", $data["email"]);
+    $statement->bindValue(":username", $data["username"]);
+    $statement->bindValue(":pswd", $data["pswd"]);
+    $statement->bindValue(":street_address", $data["street_address"]);
+    $statement->bindValue(":city", $data["city"]);
+    $statement->bindValue(":postcode", $data["postcode"]);
+    $statement->bindValue(":county", $data["county"]);
 
     $statement->execute();
 

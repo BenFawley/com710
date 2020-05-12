@@ -1,74 +1,66 @@
 <?php
 
-function check_first_name($firstName){
-
-}
-
-//CHANGE CODE BELOW TO FUNCTIONS
-
-
-//define variables and set to empty values
-$firstName = $lastName = $age = $email = $gender = $username = $pswd = "";
-$first_NameErr = $last_NameErr  = $ageErr = $emailErr = $genderErr = $usernameErr = $pswdErr = "";
+require_once("connect.php");
 
 //validating first name
-$firstName = ($_POST["first_name"]);
-if (empty($firstName)){
-    $first_NameErr = "Please enter a first name";
+function validate_first_name($firstName){
+    $firstName = ($_POST["first_name"]);
+    if (empty($firstName)){
+        echo ("Please enter a first name");
 } 
-elseif(!preg_match("/^[a-zA-Z]*$/", $firstName)){
-    $first_NameErr = "Please enter a valid name";
+    elseif(!preg_match("/^[a-zA-Z]*$/", $firstName)){
+        echo ("Please enter a valid name");
+    }
 }
-else {$firstName = ($_POST["first_name"]);
-}
-    
 
-//validating last name
-$lastName = ($_POST["last_name"]);
-if (empty($lastName)){
-    $last_NameErr = "Please enter a last name";
+//validate last name
+function validate_last_name($lastName){
+    $lastName = ($_POST["last_name"]);
+    if (empty($lastName)){
+        echo("Please enter a last name");
 } 
-elseif(!preg_match("/^[a-zA-Z]*$/", $lastName)){
-    $last_NameErr = "Please enter a valid name";
-}
-else {$lastName = ($_POST["last_name"]);
-}
-    
-
-//validating age - need to add acceptable add range
-
-$age = ($_POST["age"]);
-if (empty($age)){
-    $ageErr = "Please enter your age";
-}
-else if(filter_var($age, FILTER_VALIDATE_INT)){
-    return true; 
-}
-else{ $ageErr = "Please enter a valid number";
+    elseif(!preg_match("/^[a-zA-Z]*$/", $lastName)){
+        echo("Please enter a valid name");
+    }
 }
 
-
-//validate user doesn't already exist
-$username =($_POST["username"]);
-if (empty($username)){
-    $usernameErr = "Please enter a username";
+//validate age
+function validate_age($age){
+    $age = ($_POST["age"]);
+    if (empty($age)){
+        echo("Please enter your age");
 }
+    else if(!filter_var($age, FILTER_VALIDATE_INT)){
+        echo("Please enter a valid number"); 
+}
+    else if ($age < 0 || $age > 110){
+        echo("Please enter a valid number");
+    }
+}
+ 
+//validate username
+function validate_username($username){
+    $username = ($_POST["username"]);
+    $sql = "SELECT id FROM Users WHERE username = $username";
 
+    $result = $conn->query($sql);
+    if ($result -> rowCount() == 1){
+        echo("Username already exists");
+    }
+
+    if (empty($username)){
+        echo("Please enter a username");
+    }
+}
 //validate email
-
-$email =($_POST["email"]);
-if (empty($email)){
-    $emailErr = "Please enter an email address";
+function validate_email($email){
+    $email = ($_POST["email"]);
+    if (empty($email)){
+        echo("Please enter an email address");
+    }
+    else if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
+        echo("Please enter a valid email address");
+    }
 }
-else if (filter_var($email, FILTER_VALIDATE_EMAIL)){
-    return true;
-}
-else{ echo("Please enter a valid email address");
-}
-
-
-
-
-
 
 ?>
