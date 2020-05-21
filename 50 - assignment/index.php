@@ -1,4 +1,8 @@
+<?php
 
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,7 +24,7 @@
 <body>
     <header class="container-fluid">
         <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
-            <a class="navbar-brand" href="#">Solent Fitness</a>
+            <a class="navbar-brand" href="#"><img id ="logo" src ="logo.png" width="120" height="40"></a>
 
             <!--Collapsible Button-->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -30,7 +34,7 @@
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Home</a>
+                        <a class="nav-link" href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Gyms</a>
@@ -38,11 +42,24 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Trainers</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="price.php">Membership</a>
+                    </li>
+                    <?php 
+                    if (isset($_SESSION["uid"])){
+                    ?>
+                    <li class ="nav-item">
+                        <a class = "nav-link" href="profile.php">My Profile</a>
+                    </li>
+
+                    <?php
+                    }
+                    ?>
                 </ul>
                 <!--Sign Up/Login Navbar-->
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a href="join.html" class="nav-link"><span class="fas fa-user"></span> Sign Up</a>
+                        <a href="join.php" class="nav-link"><span class="fas fa-user"></span> Sign Up</a>
                     </li>
                     <li class="nav-item">
                         <a href="#" data-toggle="modal" id="modalOpenButton" class="nav-link"><span class="fas fa-sign-in-alt"></span> Login</a>
@@ -55,19 +72,19 @@
         <div id="logInModal" class="modal">
 
         <!--Modal Content-->  
-            <form id = "loginForm" class ="modal-content animate" action="/index.php">
+            <form id = "loginForm" class ="modal-content animate" action="login.php">
                 <div class="imageContainer">
                     <i id="loginImage" class="fas fa-user fa-3x"></i>
                 </div>
 
                 <div class="container">
                     <label><b>Username</b></label>
-                    <input type="text" placeholder="Enter Username" id = "uName" required> 
+                    <input type="text" placeholder="Enter Username" name = "uName" required> 
 
                     <label><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" id = "pass" required>
+                    <input type="password" placeholder="Enter Password" name = "pass" required>
 
-                    <button id="loginButton" type="submit">Login</button> <br>
+                    <button id="loginButton" type="submit" name="signup_submit">Login</button> <br>
                     <label>
                         <input id="rememberMe" type="checkbox" checked="checked" name="remember"> Remember me
                     </label>
@@ -79,12 +96,12 @@
 
         <!--Header Image-->
         <div class="row">
-            <img id="headerImage" class="col 12" src="headImage.png" alt="Personal Trainer">
+            <img id="headerImage" class="col-12" src="headImage.png" alt="Personal Trainer">
         </div>
         <div class="row call-to-action">
             <h5>Start your Journey Now!</h5>
             <p>
-                <a id = "joinLink" href="join.html">Join now</a>
+                <a id = "joinLink" href="join.php">Join now</a>
             </p>
         </div>
     </header>
@@ -94,19 +111,19 @@
             <h3 id="sectionTitle">Why Work With Us?</h3>
             <hr id="sectionLine">
             <div class="row">
-                <div class="col 12 col-sm-4 col-md-4 col-lg-4">
+                <div class="col-4 col-sm-4 col-md-4 col-lg-4">
                     <i class="fas fa-user-md fa-4x"></i>
                     <h3>Experienced Personal Trainers</h3>
                     <p>Our personal trainers have experience in a variety of areas such as strength and conditioning and
                         mobility</p>
                 </div>
-                <div class="col 12 col-sm-4 col-md-4 col-lg-4">
+                <div class="col-4 col-sm-4 col-md-4 col-lg-4">
                     <i class="fas fa-address-book fa-4x"></i>
                     <h3>Tailored Gym Programs</h3>
                     <p>Our personal trainers work to create tailored training programs that are specific to your goals!
                     </p>
                 </div>
-                <div class="col 12 col-sm-4 col-md-4 col-lg-4">
+                <div class="col-4 col-sm-4 col-md-4 col-lg-4">
                     <i class="fas fa-dumbbell fa-4x"></i>
                     <h3>Excellent Facilities</h3>
                     <p>Our gym offers a wide range of facilities such as free weights, treadmills, cross-trainers,
@@ -114,6 +131,26 @@
                 </div>
             </div>
         </section>
+
+        <section class ="container" id="section2">
+                <hr id ="sectionLine">
+                <div class = "row">
+                    <div class ="col-12 col-sm-12 col-md-6 col-lg-6">
+                        <img src = "equipment3.jpg" id = "img1" class = "img-fluid mx-auto d-block" width = "400px" height = "150px" alt ="gym equipment">
+                    </div>
+                    <div class ="col-12 col-sm-12 col-md-6 col-lg-6" >
+                        <img src = "equipment4.jpg" id = "img2" class = "img-fluid mx-auto d-block" width = "400px" height = "150px" alt ="gym equipment">
+                    </div>
+                    <div class ="col-12 col-sm-12 col-md-6 col-lg-6">
+                        <img src = "equipment5.jpg" id = "img3" class = "img-fluid mx-auto d-block" width = "400px" height = "150px" alt ="gym equipment">
+                    </div>
+                    <div class ="col-12 col-sm-12 col-md-6 col-lg-6">
+                        <img src = "equipment6.jpg" id = "img4" class = "img-fluid mx-auto d-block" width = "400px" height = "150px" alt ="gym equipment">
+                    </div>
+
+                </div>
+        </section>
+
     </main>
 
     <!-- Bootstrap JS -->

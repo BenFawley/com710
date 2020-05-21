@@ -25,7 +25,7 @@ function addSignUpForm(e){
 
     var data = new FormData();
     data.append("username",document.getElementById("username").value);
-    data.append("password",document.getElementById("pswd").value);
+    data.append("pswd",document.getElementById("pswd").value);
     data.append("first_name",document.getElementById("fName").value);
     data.append("last_name",document.getElementById("lName").value);
     data.append("email",document.getElementById("email").value);
@@ -51,27 +51,27 @@ function addSignUpForm(e){
 
 
 // Login Request
-// document.getElementById("loginForm").addEventListener("submit", login);
+document.getElementById("loginForm").addEventListener("submit", login);
 
-// function login(){
-//     e.preventDefault();
+function login(){
+    e.preventDefault();
 
-//     var loginData = new FormData();
+    var loginData = new FormData();
     
-//     loginData.append("username", document.getElementById("uName").value);
-//     loginData.append("password", document.getElementById("pass").value);
+    loginData.append("username", document.getElementById("uName").value);
+    loginData.append("password", document.getElementById("pass").value);
     
-//     loginData.append("action", "login");
+    loginData.append("action", "login");
 
-//     var xhttp = new XMLHttpRequest();
-//     xhttp.addEventListener("load", e => {
-//         alert(e.target.responseText);
-//     });
+    var xhttp = new XMLHttpRequest();
+    xhttp.addEventListener("load", e => {
+        alert(e.target.responseText);
+    });
 
-//     xhttp.open("POST", "login.php", true);
-//     xhttp.send(loginData);
+    xhttp.open("POST", "login.php", true);
+    xhttp.send(loginData);
     
-//}
+}
 
 
 

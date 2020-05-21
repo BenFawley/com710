@@ -20,7 +20,7 @@ function create_user($data){
     global $db;
     $sql="INSERT INTO Users 
     (first_name, last_name, age, gender, email, username, pswd, street_address, city, postcode, county)
-    VALUES(:first_name, :last_name, :age, :gender, :email, :username, :pswd, :street_address, :city, :postcode, :county)";
+    VALUES(:first_name, :last_name, :age, :gender, :email, :username, :pswd, :street_address, :city, :postcode, :county);";
     
     $statement = $db->prepare($sql);
     $statement->bindValue(":first_name", $data["first_name"]);

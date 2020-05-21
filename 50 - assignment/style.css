@@ -122,9 +122,18 @@ input[type=text], input[type=password]{
   opacity: 0.9;
 }
 
-
-
-
+#img1{
+    max-width: 50%; 
+}
+#img2{
+    max-width: 50%;
+}
+#img3{
+    max-width: 50%;
+}
+#img4{
+    max-width: 50%;
+}
 
 
 

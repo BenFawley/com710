@@ -13,18 +13,26 @@ function login($username, $password){
     if ($username != "" && $password!= "") {
         require_once("connect.php");
 
-        $sql = "SELECT id FROM Users WHERE username='$username' AND pswd='$password'";
+        $sql = "SELECT id FROM Users (username, pswd) VALUES (:username, :pswd);";
+
+        $statement = $db->prepare($sql);
+        $statement->bindValue(":username", $loginData["uName"]);
+        $statement->bindValue(":pswd", $loginData["pass"]);
+        
     
     $result =$conn->query($sql);
     if ($result->rowCount() == 1){
         $record = $result->fetch();
         session_start();
         $_SESSION["uid"]=$record["id"];
+        header("Location: index.php");
 
-        echo("log in succesful");
-
-    
-
+        }
+    else {
+        header("Location: index.php?error=incorrectdetails"); 
+        }
     }
 }
+
 ?>
+

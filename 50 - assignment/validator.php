@@ -1,6 +1,7 @@
 <?php
 
 require_once("connect.php");
+require_once("request.php");
 
 //validating first name
 function validate_first_name($firstName){
@@ -43,7 +44,7 @@ function validate_username($username){
     $username = ($_POST["username"]);
     $sql = "SELECT id FROM Users WHERE username = $username";
 
-    $result = $conn->query($sql);
+    $result = $db->query($sql);
     if ($result -> rowCount() == 1){
         echo("Username already exists");
     }
