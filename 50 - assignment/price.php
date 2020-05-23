@@ -3,7 +3,6 @@
 session_start();
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,7 +24,7 @@ session_start();
 <body>
     <header class="container-fluid">
         <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
-            <a class="navbar-brand" href="#"><img id ="logo" src ="logo.png" width="120" height="40"></a>
+            <a class="navbar-brand" href="index.php"><img id ="logo" src ="logo.png" width="120" height="40"></a>
 
             <!--Collapsible Button-->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -34,35 +33,33 @@ session_start();
             <!--Navbar Links-->
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Gyms</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Trainers</a>
-                    </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="price.php">Membership</a>
+                        <a class="nav-link" href="index.php"><i class="fas fa-home"></i> Home </a>
                     </li>
-                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-map-marker"></i> Gyms </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="training.php"><i class="fas fa-clipboard"></i> Training Plans </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="price.php"><i class="fas fa-address-card"></i> Membership </a>
+                    </li>
                     <?php 
                     if (isset($_SESSION["uid"])){
                     ?>
                     <li class ="nav-item">
-                        <a class = "nav-link" href="profile.php">My Profile</a>
+                        <a class = "nav-link" href="profile.php" id = "loadUser"><i class="fas fa-user"></i> My Profile </a>
                     </li>
 
                     <?php
                     }
                     ?>
-
                 </ul>
                 <!--Sign Up/Login Navbar-->
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a href="join.php" class="nav-link"><span class="fas fa-user"></span> Sign Up</a>
+                        <a href="join.php" class="nav-link"><span class="fas fa-user-plus"></span> Sign Up</a>
                     </li>
                     <li class="nav-item">
                         <a href="#" data-toggle="modal" id="modalOpenButton" class="nav-link"><span class="fas fa-sign-in-alt"></span> Login</a>
@@ -87,7 +84,7 @@ session_start();
                     <label><b>Password</b></label>
                     <input type="password" placeholder="Enter Password" name = "pass" required>
 
-                    <button id="loginButton" type="submit" name="signup_submit">Login</button> <br>
+                    <button id="loginButton" class="btn btn-primary" type="submit" name="signup_submit">Login</button> <br>
                     <label>
                         <input id="rememberMe" type="checkbox" checked="checked" name="remember"> Remember me
                     </label>
@@ -101,7 +98,7 @@ session_start();
         <div class="row">
             <img id="headerImage" class="col-12" src="headImage.png" alt="Personal Trainer">
         </div>
-        <div class="row call-to-action">
+        <div class="row call-to-action bg-dark">
             <h5>Start your Journey Now!</h5>
             <p>
                 <a id = "joinLink" href="join.php">Join now</a>

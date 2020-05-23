@@ -73,6 +73,20 @@ function login(){
     
 }
 
+//Retrieve user AJAX
+
+document.getElementById("loadUser").onclick = function (){
+    var xhttp = new XMLHttpRequest();
+    xhttp.addEventListener("load", e =>{
+        document.getElementById("userDetails").innerHTML = e.target.responseText;
+    });
+xhttp.open("GET", "users.php", true);
+xhttp.send();
+
+};
+
+
+
 
 
 

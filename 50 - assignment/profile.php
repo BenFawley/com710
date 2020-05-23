@@ -3,7 +3,6 @@
 session_start();
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,7 +24,7 @@ session_start();
 <body>
     <header class="container-fluid">
         <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
-            <a class="navbar-brand" href="#"><img id ="logo" src ="logo.png" width="120" height="40"></a>
+            <a class="navbar-brand" href="index.php"><img id ="logo" src ="logo.png" width="120" height="40"></a>
 
             <!--Collapsible Button-->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -34,24 +33,23 @@ session_start();
             <!--Navbar Links-->
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php">Home</a>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.php"><i class="fas fa-home"></i> Home </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Gyms</a>
+                        <a class="nav-link" href="#"><i class="fas fa-map-marker"></i> Gyms </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Trainers</a>
+                        <a class="nav-link" href="training.php"><i class="fas fa-clipboard"></i> Training Plans </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="price.php">Membership</a>
+                        <a class="nav-link" href="price.php"><i class="fas fa-address-card"></i> Membership </a>
                     </li>
-                    
                     <?php 
                     if (isset($_SESSION["uid"])){
                     ?>
-                    <li class ="nav-item active">
-                        <a class = "nav-link" href="profile.php">My Profile</a>
+                    <li class ="nav-item">
+                        <a class = "nav-link" href="profile.php" id = "loadUser"><i class="fas fa-user"></i> My Profile </a>
                     </li>
 
                     <?php
@@ -61,7 +59,7 @@ session_start();
                 <!--Sign Up/Login Navbar-->
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a href="join.php" class="nav-link"><span class="fas fa-user"></span> Sign Up</a>
+                        <a href="join.php" class="nav-link"><span class="fas fa-user-plus"></span> Sign Up</a>
                     </li>
                     <li class="nav-item">
                         <a href="#" data-toggle="modal" id="modalOpenButton" class="nav-link"><span class="fas fa-sign-in-alt"></span> Login</a>
@@ -86,7 +84,7 @@ session_start();
                     <label><b>Password</b></label>
                     <input type="password" placeholder="Enter Password" id = "pass" required>
 
-                    <button id="loginButton" type="submit">Login</button> <br>
+                    <button id="loginButton" class="btn btn-primary" type="submit">Login</button> <br>
                     <label>
                         <input id="rememberMe" type="checkbox" checked="checked" name="remember"> Remember me
                     </label>
@@ -100,55 +98,52 @@ session_start();
         <div class="row">
             <img id="headerImage" class="col-12" src="headImage.png" alt="Personal Trainer">
         </div>
-        <div class="row call-to-action">
+        <div class="row call-to-action bg-dark">
             
         </div>
     </header>
 
-    <section>
-        <form id = "sign_up_form" class = "container">
-            <div>
-            <h1>Register</h1>
-            <p>Please fill in this form to create an account</p>
-            <hr>
-            </div>
-
-            <label for="username"><b>Create Username</b></label>
-            <input type="text" placeholder="Enter Username" id = "username" name="username" required>
-
-            <label for="pswd"><b>Create Password</b></label>
-            <input type="password" placeholder="Enter Password" id = "pswd" name="pswd" required>
-
-            <label for="fName"><b>First Name</b></label>
-            <input type="text" placeholder="Enter first name" id = "fName" name="fName" required>
-
-            <label for="lName"><b>Last Name</b></label>
-            <input type="text" placeholder="Enter last name" id = "lName" name="lName" required>
-
-            <label for="email"><b>Email</b></label>
-            <input type="text" placeholder="Enter Email" id = "email" name="email" required>
-
-            <label for="age"><b>Age</b></label>
-            <input type="text" placeholder="Enter age" id = "age" name="age" required>
-
-            <label for="gender"><b>Gender</b></label>
-            <input type="text" placeholder="Enter Gender" id = "gender" name="gender">
-
-            <label for="streetAddress"><b>Street Address</b></label>
-            <input type="text" placeholder="Enter Street Address" id = "streetAddress" name="streetAddress" required> 
-
-            <label for="city"><b>City</b></label>
-            <input type="text" placeholder="Enter City" id = "city" name="city" required>
-
-            <label for="postcode"><b>Postcode</b></label>
-            <input type="text" placeholder="Enter Postcode" id = "postcode" name="postcode" required>
-
-            <label for="county"><b>County</b></label>
-            <input type="text" placeholder="Enter County" id = "county" name="county" required>
-
-             <button type="submit" class="registerBtn">Sign Up</button>
-
-        </form>
+    <section class ="container" id="userDetails">
+        <h2>Your Details</h2>
+        <table>
+            <tr>
+                <th>First Name: </th>
+                <td></td>
+            </tr>
+            <tr>
+                <th>Last Name: </th>
+                <td></td>
+            </tr>
+            <tr>
+                <th>Age: </th>
+                <td></td>
+            </tr>
+            <tr>
+                <th>Gender: </th>
+                <td></td>
+            </tr>
+            <tr>
+                <th>Email: </th>
+                <td></td>
+            </tr>
+            <tr>
+                <th>Street Address: </th>
+                <td></td>
+            </tr>
+            <tr>
+                <th>City: </th>
+                <td></td>
+            </tr>
+            <tr>
+                <th>Postcode: </th>
+                <td></td>
+            </tr>
+            <tr>
+                <th>County: </th>
+                <td></td>
+            </tr>
+        </table>
+       
     </section>
     
     <!-- Bootstrap JS -->

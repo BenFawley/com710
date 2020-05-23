@@ -2,7 +2,11 @@
 
 session_start();
 
+require_once("users.php");
+
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -106,50 +110,99 @@ session_start();
         </div>
     </header>
     <main>
-        <!--Section 1: Why work with us-->
-        <section class="container" id="section1">
-            <h3 id="sectionTitle">Why Work With Us?</h3>
-            <hr id="sectionLine">
-            <div class="row">
-                <div class="col-4 col-sm-4 col-md-4 col-lg-4">
-                    <i class="fas fa-user-md fa-4x"></i>
-                    <h3>Experienced Personal Trainers</h3>
-                    <p>Our personal trainers have experience in a variety of areas such as strength and conditioning and
-                        mobility</p>
+        <section class = "container" id ="trainingSection">
+                <h3 id="sectionTitle2">Training Plans</h3>
+                <hr id="sectionLine">   
+            <div class = "row">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-3">
+                   <div class="card" style="width:200px">
+                   <img class ="card-img-top" src="strength.jpg" alt="strength training">
+                   <div class="card-body">
+                       <h4 class="card-title">Strength and Conditioning</h4>
+                       <p class ="card-text">Our coaches offer Personalised training programs that are aimed at increasing strength and hypertrophy</p>
+                   </div>
+                   </div>
                 </div>
-                <div class="col-4 col-sm-4 col-md-4 col-lg-4">
-                    <i class="fas fa-address-book fa-4x"></i>
-                    <h3>Tailored Gym Programs</h3>
-                    <p>Our personal trainers work to create tailored training programs that are specific to your goals!
-                    </p>
+
+                <div class ="col-12 col-sm-12 col-md-6 col-lg-3"> 
+                   <div class= "card" style="width:200px">
+                   <img class ="card-img-top" src="pilates.jpg" alt="Yoga and Pilates">
+                   <div class="card-body">
+                       <h4 class="card-title">Yoga and Pilates</h4>
+                       <p class ="card-text">There are multiple yoga and pilates classes available throughout the week, perfect for improving flexibility and posture </p>
+                    </div>
+                    </div>
                 </div>
-                <div class="col-4 col-sm-4 col-md-4 col-lg-4">
-                    <i class="fas fa-dumbbell fa-4x"></i>
-                    <h3>Excellent Facilities</h3>
-                    <p>Our gym offers a wide range of facilities such as free weights, treadmills, cross-trainers,
-                        rowing machines and matted areas</p>
+
+                <div class ="col-12 col-sm-12 col-md-6 col-lg-3"> 
+                   <div class= "card" style="width:200px">
+                   <img class ="card-img-top" src="cardio.jpg" alt="Cardio">
+                   <div class="card-body">
+                       <h4 class="card-title">Cardio</h4>
+                       <p class ="card-text"> There are a number of coach led sessions and training plans with a range wide of cardio equipment such as treadmills and cycling machines </p>
+                    </div>
+                    </div>
                 </div>
+
+                <div class ="col-12 col-sm-12 col-md-6 col-lg-3"> 
+                   <div class= "card" style="width:200px">
+                   <img class ="card-img-top" src="flex.jpg" alt="Flexibility">
+                   <div class="card-body">
+                       <h4 class="card-title">Flexibility</h4>
+                       <p class ="card-text"> Our coaches have detailed knowledge and offer a range of interventions and techniques to improve flexibility and help prevent injuries </p>
+                    </div>
+                    </div>
+                </div>
+
             </div>
+
         </section>
-
-        <section class ="container" id="section2">
-                <hr id ="sectionLine">
-                <div class = "row">
-                    <div class ="col-12 col-sm-12 col-md-6 col-lg-6">
-                        <img src = "equipment3.jpg" id = "img1" class = "img-thumbnail mx-auto d-block height:auto" width = "400px" height = "250px" alt ="gym equipment">
-                    </div>
-                    <div class ="col-12 col-sm-12 col-md-6 col-lg-6" >
-                        <img src = "equipment6.jpg" id = "img2" class = "img-thumbnail mx-auto d-block height:auto" width = "400px" height = "250px" alt ="gym equipment">
-                    </div>
-                    <div class ="col-12 col-sm-12 col-md-6 col-lg-6">
-                        <img src = "equipment4.jpg" id = "img3" class = "img-thumbnail mx-auto d-block height:auto" width = "400px" height = "250px" alt ="gym equipment">
-                    </div>
-                    <div class ="col-12 col-sm-12 col-md-6 col-lg-6">
-                        <img src = "equipment8.jpg" id = "img4" class = "img-thumbnail mx-auto d-block height:auto" width = "400px" height = "250px" alt ="gym equipment">
-                    </div>
-
+        
+        <section class = "container" id ="coachSection">
+                <h3 id="sectionTitle2">Personal Trainers</h3>
+                <hr id="sectionLine">   
+            <div class = "row">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-3">
+                   <div class="card" style="width:200px">
+                   <img class ="card-img-top" src="joe.jpg" alt="Trainer1">
+                   <div class="card-body">
+                       <h4 class="card-title">Joe Bloggs</h4>
+                       <p class ="card-text">- BSc Sport Science<br>- Level 3 Personal Trainer<br>- Specialises in Strength and Conditioning</p>
+                   </div>
+                   </div>
                 </div>
-        </section>
+
+                <div class ="col-12 col-sm-12 col-md-6 col-lg-3"> 
+                   <div class= "card" style="width:200px">
+                   <img class ="card-img-top" src="john.jpg" alt="Trainer2">
+                   <div class="card-body">
+                       <h4 class="card-title">John Smith</h4>
+                       <p class ="card-text">- BSc Sports Coaching<br>- Level 3 Personal Trainer<br>- Specialises in Strength and Conditioning/Cardio</p>
+                    </div>
+                    </div>
+                </div>
+
+                <div class ="col-12 col-sm-12 col-md-6 col-lg-3"> 
+                   <div class= "card" style="width:200px">
+                   <img class ="card-img-top" src="lucy.jpg" alt="Trainer3">
+                   <div class="card-body">
+                       <h4 class="card-title">Lucy Jones</h4>
+                       <p class ="card-text">- BSc Sport and Exercise Science<br>- Level 2 Personal Trainer<br> - Specialises in Flexibility/Yoga </p>
+                    </div>
+                    </div>
+                </div>
+
+                <div class ="col-12 col-sm-12 col-md-6 col-lg-3"> 
+                   <div class= "card" style="width:200px">
+                   <img class ="card-img-top" src="amy.jpg" alt="Trainer4">
+                   <div class="card-body">
+                       <h4 class="card-title">Amy Smith</h4>
+                       <p class ="card-text">- BSc Sports Performance <br>- Level 2 Personal Trainer<br> - Specialises in Cardio/Flexibility</p>
+                    </div>
+                    </div>
+                </div>
+
+        
 
     </main>
 

@@ -8,7 +8,6 @@
 
 .call-to-action{
     align-items: center;
-    background: #333333;
     color: white;
     display: flex;
     height:80px;
@@ -44,7 +43,7 @@
     
 }
 
-.logInModal{
+#logInModal{
     display: none;
     position: fixed;
     left: 0;
@@ -57,11 +56,11 @@
 }
 
 .modal-content{
-    background-color: #fefefe;
+    background-color: #fafafa;
     margin: 10% auto 15% auto;
     border: 1px solid #a09797c0;
     width: 30%;
-    height: 30%;
+    height: 40%;
     text-align :center;
     position: relative;
     justify-content: space-around;
@@ -105,8 +104,12 @@ input[type=text], input[type=password]{
     opacity: 0.8;
 }
 
-#register{
+#sign_up_form{
+    display: block;
     text-align: center;
+}
+
+#register{
     padding-top: 10px;
     
 }
@@ -122,18 +125,29 @@ input[type=text], input[type=password]{
   opacity: 0.9;
 }
 
-#img1{
-    max-width: 50%; 
+#trainingSection{
+        padding-top: 40px;
+        display:block;
+        text-align: center;
 }
-#img2{
-    max-width: 50%;
+
+#sectionTitle2{
+    padding-bottom: 50px;
 }
-#img3{
-    max-width: 50%;
+
+.card{
+    margin: 0 auto; 
+    float: none; 
+    margin-bottom: 20px; 
 }
-#img4{
-    max-width: 50%;
+
+#coachSection{
+    padding-top: 40px;
+    display:block;
+    text-align: center;
 }
+
+
 
 
 

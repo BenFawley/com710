@@ -8,6 +8,10 @@ require_once("request.php");
 if ($action == "create") {
     create_user($_POST);
 }
+
+else if ($action == "retrieve"){
+    retrieve_user($_GET);
+}
 // else if ($action == "update") {
 //     update_user($id, $data);
 // }
@@ -40,19 +44,50 @@ function create_user($data){
     echo("success");
 }
 
-// //Retrieve user function
-// function retrieve_user($id){
-//     $sql ="SELECT first_name, last_name, age, email, street_address, city, postcode, county, registered
-//     FROM Users WHERE id = '$id'";
+//Retrieve user function
+function retrieve_user($id){
+    global $db;
+    $sql ="SELECT first_name, last_name, age, gender, email, street_address, city, postcode, county
+    FROM Users WHERE id = '$id'";
 
-//     $result = $conn->query($sql);
+    $result=$db->query($sql);
+    $sql->execute();
 
-//     if (!$result){
-//         return "No User Found";
-//     }
-//     else{
-//         return $result;
-// }
+    echo"<table>
+            <tr>
+            <th>First Name: </th>
+            <th>Last Name: </th>
+            <th>Age: </th>
+            <th>Gender: </th>
+            <th>Email: </th>
+            <th>Street Address: </th>
+            <th>City: </th>
+            <th>Postcode: </th>
+            <th>County: </th>
+            </tr>";
+    
+    if ($result -> rowCount() > 0){
+        while($details = mysqli_fetch_assoc($result)){
+            echo "<tr>";
+            echo "<td>" . $details['first_name'] . "</td>";
+            echo "<td>" . $details['last_name'] . "</td>";
+            echo "<td>" . $details['age'] . "</td>";
+            echo "<td>" . $details['gender'] . "</td>";
+            echo "<td>" . $details['email'] . "</td>";
+            echo "<td>" . $details['street_address'] . "</td>";
+            echo "<td>" . $details['city'] . "</td>";
+            echo "<td>" . $details['postcode'] ."</td>" ;
+            echo "<td>" . $details['county'] ."</td>" ;
+            echo "</tr>";
+        break;
+        }
+        echo "</table>";
+    }
+    else{
+        echo "No User Found";
+}
+
+?>
 
 // //update user function
 // function update_User($id, $data){
@@ -60,19 +95,23 @@ function create_user($data){
 //     SET first_name = ?, last_name = ?, age = ?, gender =?, email = ?, username = ?, pswd = ?, street_address = ?, city = ?, postcode = ?, county = ?
 //     WHERE id  = '$id'";
 
-//     $statement = $conn->prepare($sql);
-//     $statement->bindParam($data["first_name"]);
-//     $statement->bindParam($data["last_name"]);
-//     $statement->bindParam($data["age"]);
-//     $statement->bindParam($data["email"]);
-//     $statement->bindParam($data["username"]);
-//     $statement->bindParam($data["pswd"]);
-//     $statement->bindParam($data["street_address"]);
-//     $statement->bindParam($data["city"]);
-//     $statement->bindParam($data["postcode"]);
-//     $statement->bindParam($data["county"]);
+    $statement = $db->prepare($sql);
+    $statement->bindValue(":first_name", $data["first_name"]);
+    $statement->bindValue(":last_name", $data["last_name"]);
+    $statement->bindValue(":age", $data["age"]);
+    $statement->bindValue(":gender", $data["gender"]);
+    $statement->bindValue(":email", $data["email"]);
+    $statement->bindValue(":username", $data["username"]);
+    $statement->bindValue(":pswd", $data["pswd"]);
+    $statement->bindValue(":street_address", $data["street_address"]);
+    $statement->bindValue(":city", $data["city"]);
+    $statement->bindValue(":postcode", $data["postcode"]);
+    $statement->bindValue(":county", $data["county"]);
 
-//     $result=$conn->query($sql);
+    $statement->execute();
+
+    echo("success");
+}
 // }
 
 
