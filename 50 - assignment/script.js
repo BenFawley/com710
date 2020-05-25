@@ -56,12 +56,12 @@ document.getElementById("loginForm").addEventListener("submit", login);
 function login(){
     e.preventDefault();
 
-    var loginData = new FormData();
+    var data= new FormData();
     
-    loginData.append("username", document.getElementById("uName").value);
-    loginData.append("password", document.getElementById("pass").value);
+    data.append("username", document.getElementById("uName").value);
+    data.append("password", document.getElementById("pass").value);
     
-    loginData.append("action", "login");
+    data.append("action", "login");
 
     var xhttp = new XMLHttpRequest();
     xhttp.addEventListener("load", e => {
@@ -69,21 +69,21 @@ function login(){
     });
 
     xhttp.open("POST", "login.php", true);
-    xhttp.send(loginData);
+    xhttp.send(data);
     
 }
 
 //Retrieve user AJAX
 
-document.getElementById("loadUser").onclick = function (){
-    var xhttp = new XMLHttpRequest();
-    xhttp.addEventListener("load", e =>{
-        document.getElementById("userDetails").innerHTML = e.target.responseText;
-    });
-xhttp.open("GET", "users.php", true);
-xhttp.send();
+// document.getElementById("loadUser").onclick = function (){
+//     var xhttp = new XMLHttpRequest();
+//     xhttp.addEventListener("load", e =>{
+//         document.getElementById("userDetails").innerHTML = e.target.responseText;
+//     });
+// xhttp.open("GET", "users.php", true);
+// xhttp.send();
 
-};
+// };
 
 
 

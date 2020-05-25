@@ -2,6 +2,12 @@
 
 session_start();
 
+if (!isset($_SESSION["uid"])){
+    header("Location: login.php");
+}
+
+else{
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,7 +39,7 @@ session_start();
             <!--Navbar Links-->
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav">
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" href="index.php"><i class="fas fa-home"></i> Home </a>
                     </li>
                     <li class="nav-item">
@@ -48,7 +54,7 @@ session_start();
                     <?php 
                     if (isset($_SESSION["uid"])){
                     ?>
-                    <li class ="nav-item">
+                    <li class ="nav-item active">
                         <a class = "nav-link" href="profile.php" id = "loadUser"><i class="fas fa-user"></i> My Profile </a>
                     </li>
 
@@ -72,7 +78,7 @@ session_start();
         <div id="logInModal" class="modal">
 
         <!--Modal Content-->  
-            <form id = "loginForm" class ="modal-content animate" action="login.php">
+            <form id = "loginForm" class ="modal-content animate" action="login.php" method="post">
                 <div class="imageContainer">
                     <i id="loginImage" class="fas fa-user fa-3x"></i>
                 </div>
@@ -84,7 +90,7 @@ session_start();
                     <label><b>Password</b></label>
                     <input type="password" placeholder="Enter Password" id = "pass" required>
 
-                    <button id="loginButton" class="btn btn-primary" type="submit">Login</button> <br>
+                    <button id="loginButton" class="btn btn-primary" type="submit" name="login_submit" >Login</button> <br>
                     <label>
                         <input id="rememberMe" type="checkbox" checked="checked" name="remember"> Remember me
                     </label>
@@ -154,3 +160,8 @@ session_start();
     <script src="script.js"></script>
 
 </body>
+
+<?php
+}
+
+?>

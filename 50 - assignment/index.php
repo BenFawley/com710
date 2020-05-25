@@ -72,7 +72,7 @@ session_start();
         <div id="logInModal" class="modal">
 
         <!--Modal Content-->  
-            <form id = "loginForm" class ="modal-content animate" action="login.php">
+            <form id = "loginForm" class ="modal-content animate" action="login.php" method="post">
                 <div class="imageContainer">
                     <i id="loginImage" class="fas fa-user fa-3x"></i>
                 </div>
@@ -84,7 +84,7 @@ session_start();
                     <label><b>Password</b></label>
                     <input type="password" placeholder="Enter Password" name = "pass" required>
 
-                    <button id="loginButton" class="btn btn-primary" type="submit" name="signup_submit">Login</button> <br>
+                    <button id="loginButton" class="btn btn-primary" type="submit" name="login_submit">Login</button> <br>
                     <label>
                         <input id="rememberMe" type="checkbox" checked="checked" name="remember"> Remember me
                     </label>
@@ -113,7 +113,7 @@ session_start();
             <div class="row">
                 <div class="col-4 col-sm-4 col-md-4 col-lg-4">
                     <i class="fas fa-user-md fa-4x"></i>
-                    <h3>Experienced Personal Trainers</h3>
+                    <h3>Experienced Coaches</h3>
                     <p>Our personal trainers have experience in a variety of areas such as strength and conditioning and
                         mobility</p>
                 </div>
@@ -126,14 +126,13 @@ session_start();
                 <div class="col-4 col-sm-4 col-md-4 col-lg-4">
                     <i class="fas fa-dumbbell fa-4x"></i>
                     <h3>Excellent Facilities</h3>
-                    <p>Our gym offers a wide range of facilities such as free weights, treadmills, cross-trainers,
-                        rowing machines and matted areas</p>
+                    <p>Our gym offers a wide range of facilities such as free weights, treadmills and cross-trainers,</p>
                 </div>
             </div>
         </section>
 
         <section class ="container" id="section2">
-                <hr id ="sectionLine">
+                <hr id ="sectionLine2">
                 <div class = "row">
                     <div class ="col-12 col-sm-12 col-md-6 col-lg-6">
                         <img src = "equipment3.jpg" id = "img1" class = "img-thumbnail mx-auto d-block height:auto" width = "400px" height = "250px" alt ="gym equipment">

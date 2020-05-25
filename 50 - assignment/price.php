@@ -72,7 +72,7 @@ session_start();
         <div id="logInModal" class="modal">
 
         <!--Modal Content-->  
-            <form id = "loginForm" class ="modal-content animate" action="login.php">
+            <form id = "loginForm" class ="modal-content animate" action="login.php" method = "post">
                 <div class="imageContainer">
                     <i id="loginImage" class="fas fa-user fa-3x"></i>
                 </div>
@@ -84,7 +84,7 @@ session_start();
                     <label><b>Password</b></label>
                     <input type="password" placeholder="Enter Password" name = "pass" required>
 
-                    <button id="loginButton" class="btn btn-primary" type="submit" name="signup_submit">Login</button> <br>
+                    <button id="loginButton" class="btn btn-primary" type="submit" name="login_submit">Login</button> <br>
                     <label>
                         <input id="rememberMe" type="checkbox" checked="checked" name="remember"> Remember me
                     </label>

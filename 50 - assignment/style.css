@@ -147,7 +147,14 @@ input[type=text], input[type=password]{
     text-align: center;
 }
 
+#section2{
+    padding-top: 70px;
+}
 
+#sectionLine2{
+    border-color: #000;
+    padding-bottom: 70px;
+}
 
 
 
