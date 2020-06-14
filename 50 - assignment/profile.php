@@ -40,7 +40,7 @@ if (!isset($_SESSION["uid"])) {
                             <a class="nav-link" href="index.php"><i class="fas fa-home"></i> Home </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fas fa-map-marker"></i> Gyms </a>
+                            <a class="nav-link" href="gyms.php"><i class="fas fa-map-marker"></i> Gyms </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="training.php"><i class="fas fa-clipboard"></i> Training Plans </a>
@@ -114,7 +114,9 @@ if (!isset($_SESSION["uid"])) {
         <section class="container" id="detailsSection">
             <h2 id="detailsHeading">Your Details</h2>
             <br>
+            <div id = "loadUserDiv">
             <button id="loadUser" class="btn btn-primary">View Details</button> <br>
+            </div>
             <div id="userDetails" class="row table-responsive">
 
             </div>

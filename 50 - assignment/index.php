@@ -37,7 +37,7 @@ session_start();
                         <a class="nav-link" href="index.php"><i class="fas fa-home"></i> Home </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-map-marker"></i> Gyms </a>
+                        <a class="nav-link" href="gyms.php"><i class="fas fa-map-marker"></i> Gyms </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="training.php"><i class="fas fa-clipboard"></i> Training Plans </a>

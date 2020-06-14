@@ -35,13 +35,13 @@ session_start();
                     <li class="nav-item">
                         <a class="nav-link" href="index.php"><i class="fas fa-home"></i> Home </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a class="nav-link" href="gyms.php"><i class="fas fa-map-marker"></i> Gyms </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="training.php"><i class="fas fa-clipboard"></i> Training Plans </a>
                     </li>
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" href="price.php"><i class="fas fa-address-card"></i> Membership </a>
                     </li>
                     <li class="nav-item">
@@ -108,38 +108,33 @@ session_start();
             </p>
         </div>
     </header>
-    <main id = "priceContent" class="row">
-
-        <div class="columns col-12 col-sm-12 col-md-4 col-lg-4">
-            <ul class="price">
-                <li class="header">Basic</li>
-                <li class="grey">$ 9.99 / year</li>
-                <li>Access limited to off-peak hours</li>
-                <li>Access classes 7 days in advance</li>
-            </ul>
+    <main id="gymCards" class="container">
+        <div id = "gymCardRow" class="row ">
+            <div id = "gymCards" class="card col-12 col-sm-6 col-md-6 col-lg-6 " style="width:200px">
+                <div class="card-body">
+                    <h4 class="gym-card-title">Southampton Town Centre</h4>
+                    <p class="gym-card-text"> Solent Fitness, First Floor Hampshire House, 176-178 High St, Southampton SO14 2BY </p>
+                </div>
+            </div>
+            <div id = "gymCards" class="card col-12 col-sm-6 col-md-6 col-lg-6" style="width:200px">
+                <div class="card-body">
+                    <h4 class="gym-card-title">Southampton Shirely</h4>
+                    <p class="gym-card-text"> Solent Fitness, 366-368 Shirley Rd, Shirley, Southampton SO15 3HY </p>
+                </div>
+            </div>
+            <div id = "gymCards" class="card col-12 col-sm-6 col-md-6 col-lg-6" style="width:200px">
+                <div class="card-body">
+                    <h4 class="gym-card-title">Southampton East</h4>
+                    <p class="gym-card-text"> Solent Fitness, Antelope Park, Bursledon Rd, Thornhill, Southampton SO19 8NE</p>
+                </div>
+            </div>
+            <div id = "gymCards" class="card col-12 col-sm-6 col-md-6 col-lg-6" style="width:200px">
+                <div class="card-body">
+                    <h4 class="gym-card-title">Portsmouth</h4>
+                    <p class="gym-card-text"> Solent Fitness, The Pompey Centre, Rodney Rd, Southsea, Portsmouth, Southsea PO4 8SX</p>
+                </div>
+            </div>
         </div>
-
-        <div class="columns col-12 col-sm-12 col-md-4 col-lg-4">
-            <ul class="price">
-                <li class="header" style="background-color:#4CAF50">Pro</li>
-                <li class="grey">$ 19.99 / year</li>
-                <li>Unrestricted 24/7 access</li>
-                <li>Access classess 7 days in advance</li>
-                <li>Multiple gym access from £2</li>          
-            </ul>
-        </div>
-
-        <div class="columns col-12 col-sm-12 col-md-4 col-lg-4">
-            <ul class="price">
-                <li class="header">Premium</li>
-                <li class="grey">$ 29.99 / year</li>
-                <li>Unrestricted 24/7 access</li>
-                <li>Access classes 14 days in advance</li>
-                <li>Include multiple gym access</li>
-                <li>Bring a guest 5 times a month</li>
-            </ul>
-        </div>
-
     </main>
 
     <!-- Bootstrap JS -->

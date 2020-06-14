@@ -3,7 +3,7 @@
 session_start();
 
 require_once("request.php");
-//require_once("validator.php");
+require_once("validator.php");
 
 $id = $_SESSION['uid'];
 // $id = session_id();
@@ -19,13 +19,21 @@ else if ($action == "retrieve"){
 else if ($action == "update") {
     update_user($_POST, $id);
 }
-
+else if ($action == "delete"){
+    delete_user($id);
+}
 
 
 
 //ADD DATA VALIDATION to create function and update function
 function create_user($data){
     global $db;
+    validate_age($data);
+    validate_email($data);
+    validate_last_name($data);
+    validate_first_name($data);
+    validate_username_creation($data);
+
     $sql="INSERT INTO Users 
     (first_name, last_name, age, gender, email, username, pswd, street_address, city, postcode, county)
     VALUES(:first_name, :last_name, :age, :gender, :email, :username, :pswd, :street_address, :city, :postcode, :county);";
@@ -91,8 +99,13 @@ function retrieve_user($id){
     //update user function
 function update_user($data, $id){
     global $db;
+    validate_age($data);
+    validate_email($data);
+    validate_last_name($data);
+    validate_first_name($data);
+
     $sql ="UPDATE Users SET first_name = :first_name, last_name = :last_name, age = :age, gender = :gender, email = :email, street_address = :street_address, city = :city, postcode = :postcode, county = :county
-   WHERE id  = $id;";
+    WHERE id  = $id;";
 
     $statement = $db->prepare($sql);
     $statement->bindValue(":first_name", $data["first_name"]);
@@ -108,8 +121,24 @@ function update_user($data, $id){
     $statement->execute();
 
     echo("success");
+    }
+   
+
+
+//delete user function
+
+function delete_user($id){
+    global $db;
+    $sql ="DELETE FROM Users WHERE id = :id;";
+
+    $statement = $db->prepare($sql);
+    $statement->bindValue(":id", $id);
+
+    $statement->execute();
+
+    echo("Profile Successfully Deleted");
+    unset($_SESSION["uid"]);
+    session_destroy();
+
+
 }
-
-
-
-?>
