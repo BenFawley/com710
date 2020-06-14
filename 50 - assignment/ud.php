@@ -49,3 +49,43 @@
    
 //     }
 // }
+
+<table>
+            <tr>
+                <th>First Name: </th>
+                <td></td>
+            </tr>
+            <tr>
+                <th>Last Name: </th>
+                <td></td>
+            </tr>
+            <tr>
+                <th>Age: </th>
+                <td></td>
+            </tr>
+            <tr>
+                <th>Gender: </th>
+                <td></td>
+            </tr>
+            <tr>
+                <th>Email: </th>
+                <td></td>
+            </tr>
+            <tr>
+                <th>Street Address: </th>
+                <td></td>
+            </tr>
+            <tr>
+                <th>City: </th>
+                <td></td>
+            </tr>
+            <tr>
+                <th>Postcode: </th>
+                <td></td>
+            </tr>
+            <tr>
+                <th>County: </th>
+                <td></td>
+            </tr>
+        </table>
+       

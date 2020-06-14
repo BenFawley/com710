@@ -156,5 +156,11 @@ input[type=text], input[type=password]{
     padding-bottom: 70px;
 }
 
+#detailsHeading{
+    text-align: center;
+}
 
-
+#userDetails{
+    margin-left: auto;
+    margin-right: auto;
+}

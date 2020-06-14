@@ -3,7 +3,7 @@
 session_start();
 
 if (!isset($_SESSION["uid"])){
-    header("Location: login.php");
+    header("Location: index.php");
 }
 
 else{
@@ -51,26 +51,29 @@ else{
                     <li class="nav-item">
                         <a class="nav-link" href="price.php"><i class="fas fa-address-card"></i> Membership </a>
                     </li>
-                    <?php 
-                    if (isset($_SESSION["uid"])){
-                    ?>
                     <li class ="nav-item active">
-                        <a class = "nav-link" href="profile.php" id = "loadUser"><i class="fas fa-user"></i> My Profile </a>
+                        <a class = "nav-link" href="profile.php" id = "loadUser" <?php
+                    if (!isset($_SESSION["uid"])) echo "style = 'display: none;'"
+                    ?>><i class="fas fa-user" ></i> My Profile </a>
                     </li>
 
-                    <?php
-                    }
-                    ?>
                 </ul>
                 <!--Sign Up/Login Navbar-->
-                <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a href="join.php" class="nav-link"><span class="fas fa-user-plus"></span> Sign Up</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" data-toggle="modal" id="modalOpenButton" class="nav-link"><span class="fas fa-sign-in-alt"></span> Login</a>
-                    </li>
-                </ul>
+                <div id ="loginOrOut" class = ml-auto>
+                    <button id='logoutButton' class='btn btn-primary' type='submit' name='logout' <?php
+                    if (!isset($_SESSION["uid"])) echo "style = 'display: none;'"
+                    ?>>Logout</button>
+                        <ul class = "nav navbar-nav" <?php
+                    if (isset($_SESSION["uid"])) echo "style = 'display: none;'"
+                    ?>>
+                        <li class="nav-item">
+                            <a href="join.php" class="nav-link"><span class="fas fa-user-plus"></span> Sign Up</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" data-toggle="modal" id="modalOpenButton" class="nav-link"><span class="fas fa-sign-in-alt"></span> Login</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </nav>
 
@@ -109,46 +112,13 @@ else{
         </div>
     </header>
 
-    <section class ="container" id="userDetails">
-        <h2>Your Details</h2>
-        <table>
-            <tr>
-                <th>First Name: </th>
-                <td></td>
-            </tr>
-            <tr>
-                <th>Last Name: </th>
-                <td></td>
-            </tr>
-            <tr>
-                <th>Age: </th>
-                <td></td>
-            </tr>
-            <tr>
-                <th>Gender: </th>
-                <td></td>
-            </tr>
-            <tr>
-                <th>Email: </th>
-                <td></td>
-            </tr>
-            <tr>
-                <th>Street Address: </th>
-                <td></td>
-            </tr>
-            <tr>
-                <th>City: </th>
-                <td></td>
-            </tr>
-            <tr>
-                <th>Postcode: </th>
-                <td></td>
-            </tr>
-            <tr>
-                <th>County: </th>
-                <td></td>
-            </tr>
-        </table>
+    <section class ="container" id ="detailsSection">
+        <h2 id ="detailsHeading">Your Details</h2>
+        <br>
+        <div id="userDetails" class ="table-responsive">
+
+        </div>
+        
        
     </section>
     

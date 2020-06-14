@@ -37,38 +37,40 @@ session_start();
             <!--Navbar Links-->
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav">
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" href="index.php"><i class="fas fa-home"></i> Home </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#"><i class="fas fa-map-marker"></i> Gyms </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a class="nav-link" href="training.php"><i class="fas fa-clipboard"></i> Training Plans </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="price.php"><i class="fas fa-address-card"></i> Membership </a>
                     </li>
-                    <?php 
-                    if (isset($_SESSION["uid"])){
-                    ?>
                     <li class ="nav-item">
-                        <a class = "nav-link" href="profile.php" id = "loadUser"><i class="fas fa-user"></i> My Profile </a>
+                        <a class = "nav-link" href="profile.php" id = "loadUser"<?php
+                    if (!isset($_SESSION["uid"])) echo "style = 'display: none;'"
+                    ?>><i class="fas fa-user"></i> My Profile </a>
                     </li>
-
-                    <?php
-                    }
-                    ?>
                 </ul>
                 <!--Sign Up/Login Navbar-->
-                <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a href="join.php" class="nav-link"><span class="fas fa-user-plus"></span> Sign Up</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" data-toggle="modal" id="modalOpenButton" class="nav-link"><span class="fas fa-sign-in-alt"></span> Login</a>
-                    </li>
-                </ul>
+                <div id ="loginOrOut" class = ml-auto>
+                    <button id='logoutButton' class='btn btn-primary' type='submit' name='logout' <?php
+                    if (!isset($_SESSION["uid"])) echo "style = 'display: none;'"
+                    ?>>Logout</button>
+                        <ul class = "nav navbar-nav" <?php
+                    if (isset($_SESSION["uid"])) echo "style = 'display: none;'"
+                    ?>>
+                        <li class="nav-item">
+                            <a href="join.php" class="nav-link"><span class="fas fa-user-plus"></span> Sign Up</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" data-toggle="modal" id="modalOpenButton" class="nav-link"><span class="fas fa-sign-in-alt"></span> Login</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </nav>
 

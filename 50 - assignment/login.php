@@ -5,6 +5,7 @@ require_once("request.php");
 $username = $_POST["username"];
 $password = $_POST["password"];
 
+
 if ($action == "login"){
     login($username, $password);
 }
@@ -12,25 +13,26 @@ if ($action == "login"){
 function login($username, $password){
     global $db;
     if ($username != "" && $password!= "") {
-
-        $sql = "SELECT id FROM Users (username, pswd) VALUES (:username, :pswd);";
+        $sql = "SELECT id FROM Users WHERE username = :username and pswd = :pswd ;";
 
         $statement = $db->prepare($sql);
-        $statement->bindValue(":username", $username["username"]);
-        $statement->bindValue(":pswd", $password["password"]);
+        $statement->bindValue(":username", $username);
+        $statement->bindValue(":pswd", $password);
         $statement->execute();
         
+        // echo $statement->rowCount();
     
-        $result = $db->query($sql);
-        if ($result->rowCount() == 1){
-            $record = $result->fetch();
+        if ($statement->rowCount() == 1){
+            $record = $statement->fetch();
             session_start();
             $_SESSION["uid"]=$record["id"];
-            header("Location: index.php");
-
+            // echo "success";
             }
         else {
             header("Location: index.php?error=incorrectdetails"); 
+            echo "Incorrect Username or Password";
             }
     }
 }
+
+?>

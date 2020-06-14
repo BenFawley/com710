@@ -53,18 +53,25 @@ session_start();
                     </li>
 
                     <?php
-                    }
+                    };
                     ?>
                 </ul>
                 <!--Sign Up/Login Navbar-->
-                <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a href="join.php" class="nav-link"><span class="fas fa-user-plus"></span> Sign Up</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" data-toggle="modal" id="modalOpenButton" class="nav-link"><span class="fas fa-sign-in-alt"></span> Login</a>
-                    </li>
-                </ul>
+                <div id ="loginOrOut" class = ml-auto>
+                    <button id='logoutButton' class='btn btn-primary' type='submit' name='logout' <?php
+                    if (!isset($_SESSION["uid"])) echo "style = 'display: none;'"
+                    ?>>Logout</button>
+                        <ul class = "nav navbar-nav" <?php
+                    if (isset($_SESSION["uid"])) echo "style = 'display: none;'"
+                    ?>>
+                        <li class="nav-item">
+                            <a href="join.php" class="nav-link"><span class="fas fa-user-plus"></span> Sign Up</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" data-toggle="modal" id="modalOpenButton" class="nav-link"><span class="fas fa-sign-in-alt"></span> Login</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </nav>
 

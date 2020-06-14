@@ -40,9 +40,10 @@ function validate_age($age){
 }
  
 //validate username
-function validate_username($username){
+function validate_username_creation($username){
+    global $db;
     $username = ($_POST["username"]);
-    $sql = "SELECT id FROM Users WHERE username = $username";
+    $sql = "SELECT id FROM Users WHERE username = $username;";
 
     $result = $db->query($sql);
     if ($result -> rowCount() == 1){
@@ -63,5 +64,6 @@ function validate_email($email){
         echo("Please enter a valid email address");
     }
 }
+
 
 ?>

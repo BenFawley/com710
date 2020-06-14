@@ -1,16 +1,19 @@
 <?php
 
+session_start();
 
 require_once("request.php");
 //require_once("validator.php");
 
+$id = $_SESSION['uid'];
+// $id = session_id();
 
 if ($action == "create") {
     create_user($_POST);
 }
 
 else if ($action == "retrieve"){
-    retrieve_user($_GET);
+    retrieve_user($id);
 }
 
 // else if ($action == "update") {
@@ -49,26 +52,27 @@ function create_user($data){
 function retrieve_user($id){
     global $db;
     $sql ="SELECT first_name, last_name, age, gender, email, street_address, city, postcode, county
-    FROM Users WHERE id = '$id'";
+    FROM Users WHERE id = :id;";
 
-    $result=$db->query($sql);
-    $sql->execute();
+    $statement = $db->prepare($sql);
+    $statement->bindValue(":id", $id);
+    $statement->execute();
 
-    echo"<table>
+    echo"<table class='table table-dark'>
             <tr>
             <th>First Name: </th>
             <th>Last Name: </th>
-            <th>Age: </th>
-            <th>Gender: </th>
-            <th>Email: </th>
+            <th> Age: </th>
+            <th> Gender: </th>
+            <th> Email: </th>
             <th>Street Address: </th>
-            <th>City: </th>
-            <th>Postcode: </th>
-            <th>County: </th>
+            <th> City: </th>
+            <th> Postcode: </th>
+            <th> County: </th>
             </tr>";
     
-    if ($result -> rowCount() > 0){
-        while($details = mysqli_fetch_assoc($result)){
+    if ($statement->rowCount() == 1){
+        $details = $statement->fetch();
             echo "<tr>";
             echo "<td>" . $details['first_name'] . "</td>";
             echo "<td>" . $details['last_name'] . "</td>";
@@ -80,14 +84,9 @@ function retrieve_user($id){
             echo "<td>" . $details['postcode'] ."</td>" ;
             echo "<td>" . $details['county'] ."</td>" ;
             echo "</tr>";
-        break;
         }
         echo "</table>";
     }
-    else{
-        echo "No User Found";
-    }
 
-}
 
 ?>
