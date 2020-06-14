@@ -50,7 +50,7 @@ session_start();
                         <a class="nav-link" href="price.php"><i class="fas fa-address-card"></i> Membership </a>
                     </li>
                     <li class ="nav-item">
-                        <a class = "nav-link" href="profile.php" id = "loadUser"<?php
+                        <a class = "nav-link" href="profile.php" <?php
                     if (!isset($_SESSION["uid"])) echo "style = 'display: none;'"
                     ?>><i class="fas fa-user"></i> My Profile </a>
                     </li>
@@ -104,7 +104,9 @@ session_start();
         <div class="row">
             <img id="headerImage" class="col-12" src="headImage.png" alt="Personal Trainer">
         </div>
-        <div class="row call-to-action bg-dark">
+        <div class="row call-to-action bg-dark" <?php
+                    if (isset($_SESSION["uid"])) echo "style = 'display: none;'"
+                    ?>>
             <h5>Start your Journey Now!</h5>
             <p>
                 <a id = "joinLink" href="join.php">Join now</a>

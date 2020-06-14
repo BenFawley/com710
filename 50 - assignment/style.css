@@ -163,4 +163,13 @@ input[type=text], input[type=password]{
 #userDetails{
     margin-left: auto;
     margin-right: auto;
+    
+}
+
+#updateUser{
+    display:none;
+}
+
+#deleteUser{
+    display:none;
 }

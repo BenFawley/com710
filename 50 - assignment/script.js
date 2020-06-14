@@ -28,15 +28,6 @@ document.getElementById("logoutButton").onclick = function(){
     var xhttp = new XMLHttpRequest();
     xhttp.addEventListener("load", e => {
         alert(e.target.responseText);
-        // document.getElementById("loginOrOut").innerHTML = "\
-        //     <ul class = 'nav navbar-nav'>\
-        //         <li class='nav-item'>\
-        //             <a href='join.php' class='nav-link'><span class='fas fa-user-plus'></span> Sign Up</a>\
-        //         </li>\
-        //         <li class='nav-item'>\
-        //             <a href='#' data-toggle='modal' id='modalOpenButton' class='nav-link'><span class='fas fa-sign-in-alt'></span> Login</a>\
-        //         </li>\
-        //     </ul>";
 
         location.reload();
     });
@@ -112,30 +103,69 @@ function login(e){
     
 }
 
-
-
-
 // Retrieve user AJAX
+if(document.getElementById("loadUser") != null){
+    document.getElementById("loadUser").onclick = function (e){
+        e.preventDefault();
 
-document.getElementById("loadUser").onclick = function (e){
+        var loadData = new FormData();
+        
+        loadData.append("action", "retrieve");
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.addEventListener("load", e =>{
+            if (e.target.status == 200){
+                    document.getElementById("userDetails").innerHTML = e.target.responseText;
+                    document.getElementById("loadUser").style.display = "none";
+                    document.getElementById("updateUser").style.display = "block";
+                    document.getElementById("deleteUser").style.display = "block";
+            }
+        });
+    xhttp.open("POST", "users.php", true);
+    xhttp.send(loadData);
+
+
+    };
+}
+
+//Update User 
+
+const updateDetailsForm = document.getElementById("updateDetailsForm");
+if (updateDetailsForm){
+    updateDetailsForm.addEventListener("submit", updateUser);
+}
+
+function updateUser(e){
     e.preventDefault();
 
-    var loadData = new FormData();
+    var data = new FormData();
 
-    
-    loadData.append("action", "retrieve");
+    data.append("first_name",document.getElementById("uFName").value);
+    data.append("last_name",document.getElementById("uLName").value);
+    data.append("email",document.getElementById("uEmail").value);
+    data.append("age",document.getElementById("uAge").value);
+    data.append("gender",document.getElementById("uGender").value);
+    data.append("street_address",document.getElementById("uStreetAddress").value);
+    data.append("city",document.getElementById("uCity").value);
+    data.append("postcode",document.getElementById("uPostcode").value);
+    data.append("county",document.getElementById("uCounty").value);
+
+    data.append("action", "update");
 
     var xhttp = new XMLHttpRequest();
-    xhttp.addEventListener("load", e =>{
-        if (e.target.status == 200){
-            document.getElementById("userDetails").innerHTML = e.target.responseText; 
-        }
+    xhttp.addEventListener("load", e => {
+        alert(e.target.responseText);
+        window.location.replace("profile.php");
+        //first check response status is 200 (200 = ok)
+        //then display error/success message
     });
-xhttp.open("POST", "users.php", true);
-xhttp.send(loadData);
+
+    xhttp.open("POST", "users.php", true);
+    xhttp.send(data);
+}
 
 
-};
+
 
 
 

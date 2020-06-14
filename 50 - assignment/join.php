@@ -49,7 +49,7 @@ session_start();
                     if (isset($_SESSION["uid"])){
                     ?>
                     <li class ="nav-item">
-                        <a class = "nav-link" href="profile.php" id = "loadUser"><i class="fas fa-user"></i> My Profile </a>
+                        <a class = "nav-link" href="profile.php" ><i class="fas fa-user"></i> My Profile </a>
                     </li>
 
                     <?php
