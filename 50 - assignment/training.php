@@ -18,8 +18,7 @@ session_start();
     <title>Response Page</title>
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css" />
     <script src="https://kit.fontawesome.com/4323ba3d16.js" crossorigin="anonymous"></script>
@@ -28,7 +27,7 @@ session_start();
 <body>
     <header class="container-fluid">
         <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
-            <a class="navbar-brand" href="index.php"><img id ="logo" src ="logo.png" width="120" height="40"></a>
+            <a class="navbar-brand" href="index.php"><img id="logo" src="logo.png" width="120" height="40"></a>
 
             <!--Collapsible Button-->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -49,20 +48,20 @@ session_start();
                     <li class="nav-item">
                         <a class="nav-link" href="price.php"><i class="fas fa-address-card"></i> Membership </a>
                     </li>
-                    <li class ="nav-item">
-                        <a class = "nav-link" href="profile.php" <?php
-                    if (!isset($_SESSION["uid"])) echo "style = 'display: none;'"
-                    ?>><i class="fas fa-user"></i> My Profile </a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="profile.php" <?php
+                                                                if (!isset($_SESSION["uid"])) echo "style = 'display: none;'"
+                                                                ?>><i class="fas fa-user"></i> My Profile </a>
                     </li>
                 </ul>
                 <!--Sign Up/Login Navbar-->
-                <div id ="loginOrOut" class = ml-auto>
+                <div id="loginOrOut" class=ml-auto>
                     <button id='logoutButton' class='btn btn-primary' type='submit' name='logout' <?php
-                    if (!isset($_SESSION["uid"])) echo "style = 'display: none;'"
-                    ?>>Logout</button>
-                        <ul class = "nav navbar-nav" <?php
-                    if (isset($_SESSION["uid"])) echo "style = 'display: none;'"
-                    ?>>
+                                                                                                    if (!isset($_SESSION["uid"])) echo "style = 'display: none;'"
+                                                                                                    ?>>Logout</button>
+                    <ul class="nav navbar-nav" <?php
+                                                if (isset($_SESSION["uid"])) echo "style = 'display: none;'"
+                                                ?>>
                         <li class="nav-item">
                             <a href="join.php" class="nav-link"><span class="fas fa-user-plus"></span> Sign Up</a>
                         </li>
@@ -77,23 +76,30 @@ session_start();
         <!--Creating a log in Modal-->
         <div id="logInModal" class="modal">
 
-        <!--Modal Content-->  
-            <form id = "loginForm" class ="modal-content animate" action="login.php" method="post">
+            <!--Modal Content-->
+            <form id="loginForm" class="modal-content animate" action="login.php" method="post">
                 <div class="imageContainer">
-                    <i id="loginImage" class="fas fa-user fa-3x"></i>
+                    <i id="loginImage" class="fas fa-users fa-2x"></i>
+                    <h4>Member Login</h2>
                 </div>
 
                 <div class="container">
-                    <label><b>Username</b></label>
-                    <input type="text" placeholder="Enter Username" name = "uName" required> 
+                    <div class="input-icons">
+                        <i id="i1" class="fas fa-user icons"></i>
+                        <input type="text" placeholder="Username" name="uName" required>
+                    </div>
 
-                    <label><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name = "pass" required>
+                    <div class="input-icons">
+                        <i id="i2" class="fas fa-lock icons"></i>
+                        <input type="password" placeholder="Password" name="pass" required>
+                    </div>
 
-                    <button id="loginButton" class="btn btn-primary" type="submit" name="login_submit">Login</button> <br>
-                    <label>
-                        <input id="rememberMe" type="checkbox" checked="checked" name="remember"> Remember me
-                    </label>
+                    <div id="buttonContainer">
+                        <button id="loginButton" class="btn btn-primary" type="submit" name="login_submit">Login</button> <br>
+                    </div>
+
+                    <input id="rememberMe" type="checkbox" checked="checked" name="remember"> Remember
+
                     <span id="closeButton" class="modal-close">X</span>
 
                 </div>
@@ -105,116 +111,112 @@ session_start();
             <img id="headerImage" class="col-12" src="headImage.png" alt="Personal Trainer">
         </div>
         <div class="row call-to-action bg-dark" <?php
-                    if (isset($_SESSION["uid"])) echo "style = 'display: none;'"
-                    ?>>
+                                                if (isset($_SESSION["uid"])) echo "style = 'display: none;'"
+                                                ?>>
             <h5>Start your Journey Now!</h5>
-            <p>
-                <a id = "joinLink" href="join.php">Join now</a>
-            </p>
+            <a class = "btn btn-primary" id="joinLink" href="join.php">Join now</a>
         </div>
     </header>
     <main>
-        <section class = "container" id ="trainingSection">
-                <h3 id="sectionTitle2">Training Plans</h3>
-                <hr id="sectionLine">   
-            <div class = "row">
+        <section class="container" id="trainingSection">
+            <h3 id="sectionTitle2">Training Plans</h3>
+            <hr id="sectionLine">
+            <div class="row">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-3">
-                   <div class="card" style="width:200px">
-                   <img class ="card-img-top" src="strength.jpg" alt="strength training">
-                   <div class="card-body">
-                       <h4 class="card-title">Strength and Conditioning</h4>
-                       <p class ="card-text">Our coaches offer Personalised training programs that are aimed at increasing strength and hypertrophy</p>
-                   </div>
-                   </div>
-                </div>
-
-                <div class ="col-12 col-sm-12 col-md-6 col-lg-3"> 
-                   <div class= "card" style="width:200px">
-                   <img class ="card-img-top" src="pilates.jpg" alt="Yoga and Pilates">
-                   <div class="card-body">
-                       <h4 class="card-title">Yoga and Pilates</h4>
-                       <p class ="card-text">There are multiple yoga and pilates classes available throughout the week, perfect for improving flexibility and posture </p>
-                    </div>
+                    <div class="card" style="width:200px">
+                        <img class="card-img-top" src="strength.jpg" alt="strength training">
+                        <div class="card-body">
+                            <h4 class="card-title">Strength and Conditioning</h4>
+                            <p class="card-text">Our coaches offer Personalised training programs that are aimed at increasing strength and hypertrophy</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class ="col-12 col-sm-12 col-md-6 col-lg-3"> 
-                   <div class= "card" style="width:200px">
-                   <img class ="card-img-top" src="cardio.jpg" alt="Cardio">
-                   <div class="card-body">
-                       <h4 class="card-title">Cardio</h4>
-                       <p class ="card-text"> There are a number of coach led sessions and training plans with a range wide of cardio equipment such as treadmills and cycling machines </p>
-                    </div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-3">
+                    <div class="card" style="width:200px">
+                        <img class="card-img-top" src="pilates.jpg" alt="Yoga and Pilates">
+                        <div class="card-body">
+                            <h4 class="card-title">Yoga and Pilates</h4>
+                            <p class="card-text">There are multiple yoga and pilates classes available throughout the week, perfect for improving flexibility and posture </p>
+                        </div>
                     </div>
                 </div>
 
-                <div class ="col-12 col-sm-12 col-md-6 col-lg-3"> 
-                   <div class= "card" style="width:200px">
-                   <img class ="card-img-top" src="flex.jpg" alt="Flexibility">
-                   <div class="card-body">
-                       <h4 class="card-title">Flexibility</h4>
-                       <p class ="card-text"> Our coaches have detailed knowledge and offer a range of interventions and techniques to improve flexibility and help prevent injuries </p>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-3">
+                    <div class="card" style="width:200px">
+                        <img class="card-img-top" src="cardio.jpg" alt="Cardio">
+                        <div class="card-body">
+                            <h4 class="card-title">Cardio</h4>
+                            <p class="card-text"> There are a number of coach led sessions and training plans with a range wide of cardio equipment such as treadmills and cycling machines </p>
+                        </div>
                     </div>
+                </div>
+
+                <div class="col-12 col-sm-12 col-md-6 col-lg-3">
+                    <div class="card" style="width:200px">
+                        <img class="card-img-top" src="flex.jpg" alt="Flexibility">
+                        <div class="card-body">
+                            <h4 class="card-title">Flexibility</h4>
+                            <p class="card-text"> Our coaches have detailed knowledge and offer a range of interventions and techniques to improve flexibility and help prevent injuries </p>
+                        </div>
                     </div>
                 </div>
 
             </div>
 
         </section>
-        
-        <section class = "container" id ="coachSection">
-                <h3 id="sectionTitle2">Personal Trainers</h3>
-                <hr id="sectionLine">   
-            <div class = "row">
+
+        <section class="container" id="coachSection">
+            <h3 id="sectionTitle2">Personal Trainers</h3>
+            <hr id="sectionLine">
+            <div class="row">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-3">
-                   <div class="card" style="width:200px">
-                   <img class ="card-img-top" src="joe.jpg" alt="Trainer1">
-                   <div class="card-body">
-                       <h4 class="card-title">Joe Bloggs</h4>
-                       <p class ="card-text">- BSc Sport Science<br>- Level 3 Personal Trainer<br>- Specialises in Strength and Conditioning</p>
-                   </div>
-                   </div>
-                </div>
-
-                <div class ="col-12 col-sm-12 col-md-6 col-lg-3"> 
-                   <div class= "card" style="width:200px">
-                   <img class ="card-img-top" src="john.jpg" alt="Trainer2">
-                   <div class="card-body">
-                       <h4 class="card-title">John Smith</h4>
-                       <p class ="card-text">- BSc Sports Coaching<br>- Level 3 Personal Trainer<br>- Specialises in Strength and Conditioning/Cardio</p>
-                    </div>
+                    <div class="card" style="width:200px">
+                        <img class="card-img-top" src="joe.jpg" alt="Trainer1">
+                        <div class="card-body">
+                            <h4 class="card-title">Joe Bloggs</h4>
+                            <p class="card-text">- BSc Sport Science<br>- Level 3 Personal Trainer<br>- Specialises in Strength and Conditioning</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class ="col-12 col-sm-12 col-md-6 col-lg-3"> 
-                   <div class= "card" style="width:200px">
-                   <img class ="card-img-top" src="lucy.jpg" alt="Trainer3">
-                   <div class="card-body">
-                       <h4 class="card-title">Lucy Jones</h4>
-                       <p class ="card-text">- BSc Sport and Exercise Science<br>- Level 2 Personal Trainer<br> - Specialises in Flexibility/Yoga </p>
-                    </div>
-                    </div>
-                </div>
-
-                <div class ="col-12 col-sm-12 col-md-6 col-lg-3"> 
-                   <div class= "card" style="width:200px">
-                   <img class ="card-img-top" src="amy.jpg" alt="Trainer4">
-                   <div class="card-body">
-                       <h4 class="card-title">Amy Smith</h4>
-                       <p class ="card-text">- BSc Sports Performance <br>- Level 2 Personal Trainer<br> - Specialises in Cardio/Flexibility</p>
-                    </div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-3">
+                    <div class="card" style="width:200px">
+                        <img class="card-img-top" src="john.jpg" alt="Trainer2">
+                        <div class="card-body">
+                            <h4 class="card-title">John Smith</h4>
+                            <p class="card-text">- BSc Sports Coaching<br>- Level 3 Personal Trainer<br>- Specialises in Strength and Conditioning/Cardio</p>
+                        </div>
                     </div>
                 </div>
 
-        
+                <div class="col-12 col-sm-12 col-md-6 col-lg-3">
+                    <div class="card" style="width:200px">
+                        <img class="card-img-top" src="lucy.jpg" alt="Trainer3">
+                        <div class="card-body">
+                            <h4 class="card-title">Lucy Jones</h4>
+                            <p class="card-text">- BSc Sport and Exercise Science<br>- Level 2 Personal Trainer<br> - Specialises in Flexibility/Yoga </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-12 col-md-6 col-lg-3">
+                    <div class="card" style="width:200px">
+                        <img class="card-img-top" src="amy.jpg" alt="Trainer4">
+                        <div class="card-body">
+                            <h4 class="card-title">Amy Smith</h4>
+                            <p class="card-text">- BSc Sports Performance <br>- Level 2 Personal Trainer<br> - Specialises in Cardio/Flexibility</p>
+                        </div>
+                    </div>
+                </div>
+
+
 
     </main>
 
     <!-- Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="script.js"></script>
 
 </body>

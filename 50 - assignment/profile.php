@@ -80,20 +80,27 @@ if (!isset($_SESSION["uid"])) {
                 <!--Modal Content-->
                 <form id="loginForm" class="modal-content animate" action="login.php" method="post">
                     <div class="imageContainer">
-                        <i id="loginImage" class="fas fa-user fa-3x"></i>
+                        <i id="loginImage" class="fas fa-users fa-2x"></i>
+                        <h4>Member Login</h2>
                     </div>
 
                     <div class="container">
-                        <label><b>Username</b></label>
-                        <input type="text" placeholder="Enter Username" id="uName" required>
+                        <div class="input-icons">
+                            <i id="i1" class="fas fa-user icons"></i>
+                            <input type="text" placeholder="Username" name="uName" required>
+                        </div>
 
-                        <label><b>Password</b></label>
-                        <input type="password" placeholder="Enter Password" id="pass" required>
+                        <div class="input-icons">
+                            <i id="i2" class="fas fa-lock icons"></i>
+                            <input type="password" placeholder="Password" name="pass" required>
+                        </div>
 
-                        <button id="loginButton" class="btn btn-primary" type="submit" name="login_submit">Login</button> <br>
-                        <label>
-                            <input id="rememberMe" type="checkbox" checked="checked" name="remember"> Remember me
-                        </label>
+                        <div id="buttonContainer">
+                            <button id="loginButton" class="btn btn-primary" type="submit" name="login_submit">Login</button> <br>
+                        </div>
+
+                        <input id="rememberMe" type="checkbox" checked="checked" name="remember"> Remember
+
                         <span id="closeButton" class="modal-close">X</span>
 
                     </div>
@@ -114,8 +121,8 @@ if (!isset($_SESSION["uid"])) {
         <section class="container" id="detailsSection">
             <h2 id="detailsHeading">Your Details</h2>
             <br>
-            <div id = "loadUserDiv">
-            <button id="loadUser" class="btn btn-primary">View Details</button> <br>
+            <div id="loadUserDiv">
+                <button id="loadUser" class="btn btn-primary">View Details</button> <br>
             </div>
             <div id="userDetails" class="row table-responsive">
 

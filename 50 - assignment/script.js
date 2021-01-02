@@ -18,6 +18,26 @@ document.getElementById("closeButton").onclick = function () {
     logInModal.style.display = "none";
 }
 
+// function validateSignUpForm(){
+//     const un = document.getElementById("username").value;
+//     if (un.value == null || un.value == ""){
+//         un.classlist.add("red");
+//         return false;
+//     }
+//     const pw = document.getElementById("pswd").value;
+//     const fn = document.getElementById("fName").value;
+//     const ln = document.getElementById("lName").value;
+//     const mail = document.getElementById("email").value;
+//     const age = document.getElementById("age").value;
+//     const gen = document.getElementById("gender").value;
+//     const address = document.getElementById("streetAddress").value;
+//     const city = document.getElementById("city").value;
+//     const pc = document.getElementById("postcode").value;
+//     const county = document.getElementById("county").value;
+
+    
+// }
+
 // logout button functionality
 document.getElementById("logoutButton").onclick = function () {
 

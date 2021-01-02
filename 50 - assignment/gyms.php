@@ -75,20 +75,27 @@ session_start();
             <!--Modal Content-->
             <form id="loginForm" class="modal-content animate" action="login.php" method="post">
                 <div class="imageContainer">
-                    <i id="loginImage" class="fas fa-user fa-3x"></i>
+                    <i id="loginImage" class="fas fa-users fa-2x"></i>
+                    <h4>Member Login</h2>
                 </div>
 
                 <div class="container">
-                    <label><b>Username</b></label>
-                    <input type="text" placeholder="Enter Username" name="uName" required>
+                    <div class="input-icons">
+                        <i id="i1" class="fas fa-user icons"></i>
+                        <input type="text" placeholder="Username" name="uName" required>
+                    </div>
 
-                    <label><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="pass" required>
+                    <div class="input-icons">
+                        <i id="i2" class="fas fa-lock icons"></i>
+                        <input type="password" placeholder="Password" name="pass" required>
+                    </div>
 
-                    <button id="loginButton" class="btn btn-primary" type="submit" name="login_submit">Login</button> <br>
-                    <label>
-                        <input id="rememberMe" type="checkbox" checked="checked" name="remember"> Remember me
-                    </label>
+                    <div id="buttonContainer">
+                        <button id="loginButton" class="btn btn-primary" type="submit" name="login_submit">Login</button> <br>
+                    </div>
+
+                    <input id="rememberMe" type="checkbox" checked="checked" name="remember"> Remember
+
                     <span id="closeButton" class="modal-close">X</span>
 
                 </div>
@@ -103,32 +110,30 @@ session_start();
                                                 if (isset($_SESSION["uid"])) echo "style = 'display: none;'"
                                                 ?>>
             <h5>Start your Journey Now!</h5>
-            <p>
-                <a id="joinLink" href="join.php">Join now</a>
-            </p>
+            <a class = "btn btn-primary" id="joinLink" href="join.php">Join now</a>
         </div>
     </header>
     <main id="gymCards" class="container">
-        <div id = "gymCardRow" class="row ">
-            <div id = "gymCards" class="card col-12 col-sm-6 col-md-6 col-lg-6 " style="width:200px">
+        <div id="gymCardRow" class="row ">
+            <div id="gymCards" class="card col-12 col-sm-6 col-md-6 col-lg-6 " style="width:200px">
                 <div class="card-body">
                     <h4 class="gym-card-title">Southampton Town Centre</h4>
                     <p class="gym-card-text"> Solent Fitness, First Floor Hampshire House, 176-178 High St, Southampton SO14 2BY </p>
                 </div>
             </div>
-            <div id = "gymCards" class="card col-12 col-sm-6 col-md-6 col-lg-6" style="width:200px">
+            <div id="gymCards" class="card col-12 col-sm-6 col-md-6 col-lg-6" style="width:200px">
                 <div class="card-body">
                     <h4 class="gym-card-title">Southampton Shirely</h4>
                     <p class="gym-card-text"> Solent Fitness, 366-368 Shirley Rd, Shirley, Southampton SO15 3HY </p>
                 </div>
             </div>
-            <div id = "gymCards" class="card col-12 col-sm-6 col-md-6 col-lg-6" style="width:200px">
+            <div id="gymCards" class="card col-12 col-sm-6 col-md-6 col-lg-6" style="width:200px">
                 <div class="card-body">
                     <h4 class="gym-card-title">Southampton East</h4>
                     <p class="gym-card-text"> Solent Fitness, Antelope Park, Bursledon Rd, Thornhill, Southampton SO19 8NE</p>
                 </div>
             </div>
-            <div id = "gymCards" class="card col-12 col-sm-6 col-md-6 col-lg-6" style="width:200px">
+            <div id="gymCards" class="card col-12 col-sm-6 col-md-6 col-lg-6" style="width:200px">
                 <div class="card-body">
                     <h4 class="gym-card-title">Portsmouth</h4>
                     <p class="gym-card-text"> Solent Fitness, The Pompey Centre, Rodney Rd, Southsea, Portsmouth, Southsea PO4 8SX</p>

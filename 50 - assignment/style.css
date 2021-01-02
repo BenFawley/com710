@@ -1,3 +1,12 @@
+html,body
+{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+}
+
 #headerImage{
     height: 600px;
     padding: 0px;
@@ -15,16 +24,10 @@
 
 }
 
-.call-to-action p{
-    align-self:center;
-    background-color: #44c184;
-    border-radius: 2px;
-    margin-left: 20px;
-    padding: 5px 10px;
-}
 
 #joinLink{
     color: white;
+    margin-left: 20px;
 }
 
 #section1{
@@ -38,7 +41,7 @@
 }
 
 #sectionLine{
-    padding-bottom: 70px;
+    padding-bottom: 50px;
     border-color: black;
     
 }
@@ -51,7 +54,9 @@
     width: 100%;
     height: 100%;
     background-color: rgba(0,0, 0, 0.5);
-    padding-top: 60px;
+    padding-top: 80px;
+    z-index: 10;
+
     
 }
 
@@ -60,15 +65,19 @@
     margin: 10% auto 15% auto;
     border: 1px solid #a09797c0;
     width: 30%;
-    height: 40%;
+    height: 45%;
+    min-width: 250px;
+    min-height: 400px;
     text-align :center;
     position: relative;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
 }
 
 input[type=text], input[type=password]{
     width: 100%;
-    padding: 5px;
+    padding: 10px;
+    text-align: center;
     margin: 8px;
     display: inline-block;
 }
@@ -94,6 +103,7 @@ input[type=text], input[type=password]{
     position:absolute;
     bottom: 0px;
     right: 0px;
+    padding: 10px;
 }
 
 .signUpButton{
@@ -109,13 +119,16 @@ input[type=text], input[type=password]{
     text-align: center;
 }
 
+#sign_up_form h1{
+    padding-top: 10px;
+}
+
 #register{
     padding-top: 10px;
     
 }
 
 .registerBtn{
-  background-color: #4CAF50;
   color: white;
   padding: 16px 20px;
   margin: 8px 0;
@@ -123,6 +136,10 @@ input[type=text], input[type=password]{
   cursor: pointer;
   width: 100%;
   opacity: 0.9;
+}
+
+.registerBtn:hover{
+    opacity: 1.5;
 }
 
 #trainingSection{
@@ -153,7 +170,7 @@ input[type=text], input[type=password]{
 
 #sectionLine2{
     border-color: #000;
-    padding-bottom: 70px;
+    padding-bottom: 60px;
 }
 
 #detailsHeading{
@@ -233,5 +250,63 @@ input[type=text], input[type=password]{
     column-rule: 20px;
 }
 
+.green{
+    color: green;
+}
+
+.red{
+    color: red;
+}
+
+.carousel-inner img{
+    margin:auto;
+}
+
+#whywork{
+    align-items: center;
+    text-align: center;
+}
+
+#whywork p{
+    padding-bottom: 25px;
+}
+
+#slides{
+    margin-bottom: 40px;
+}
+
+h4{
+    padding: 10px;
+}
+
+#buttonContainer{
+    margin: 10px;
+}
+
+.input-icons{
+    position: relative;
+      
+}
+
+i.icons{
+    position: absolute;
+    left: 20px;
+    top: 25px;
+}
+
+.buttonWrapper{
+    text-align: center;
+    justify-content: center;
+}
+
+i.icon{
+    padding-bottom: 20px;
+}
 
 
+/* #inputFields{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+} */

@@ -75,20 +75,27 @@ session_start();
             <!--Modal Content-->
             <form id="loginForm" class="modal-content animate" action="login.php" method="post">
                 <div class="imageContainer">
-                    <i id="loginImage" class="fas fa-user fa-3x"></i>
+                    <i id="loginImage" class="fas fa-users fa-2x"></i>
+                    <h4>Member Login</h2>
                 </div>
 
                 <div class="container">
-                    <label><b>Username</b></label>
-                    <input type="text" placeholder="Enter Username" name="uName" required>
+                    <div class="input-icons">
+                        <i id="i1" class="fas fa-user icons"></i>
+                        <input type="text" placeholder="Username" name="uName" required>
+                    </div>
 
-                    <label><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="pass" required>
+                    <div class="input-icons">
+                        <i id="i2" class="fas fa-lock icons"></i>
+                        <input type="password" placeholder="Password" name="pass" required>
+                    </div>
 
-                    <button id="loginButton" class="btn btn-primary" type="submit" name="login_submit">Login</button> <br>
-                    <label>
-                        <input id="rememberMe" type="checkbox" checked="checked" name="remember"> Remember me
-                    </label>
+                    <div id="buttonContainer">
+                        <button id="loginButton" class="btn btn-primary" type="submit" name="login_submit">Login</button> <br>
+                    </div>
+
+                    <input id="rememberMe" type="checkbox" checked="checked" name="remember"> Remember
+
                     <span id="closeButton" class="modal-close">X</span>
 
                 </div>
@@ -103,36 +110,35 @@ session_start();
                                                 if (isset($_SESSION["uid"])) echo "style = 'display: none;'"
                                                 ?>>
             <h5>Start your Journey Now!</h5>
-            <p>
-                <a id="joinLink" href="join.php">Join now</a>
-            </p>
+            <a class = "btn btn-primary" id="joinLink" href="join.php">Join now</a>
         </div>
     </header>
-    <main id = "priceContent" class="row">
+    <main id="priceContent" class="row">
 
         <div class="columns col-12 col-sm-12 col-md-4 col-lg-4">
             <ul class="price">
                 <li class="header">Basic</li>
-                <li class="grey">$ 9.99 / year</li>
+                <li class="grey">£ 9.99 / month</li>
                 <li>Access limited to off-peak hours</li>
                 <li>Access classes 7 days in advance</li>
             </ul>
         </div>
+        <!-- style="background-color:#4CAF50" -->
 
         <div class="columns col-12 col-sm-12 col-md-4 col-lg-4">
             <ul class="price">
-                <li class="header" style="background-color:#4CAF50">Pro</li>
-                <li class="grey">$ 19.99 / year</li>
+                <li class="header" style="background-color:#337ab7">Pro</li>
+                <li class="grey">£ 19.99 / month</li>
                 <li>Unrestricted 24/7 access</li>
                 <li>Access classess 7 days in advance</li>
-                <li>Multiple gym access from £2</li>          
+                <li>Multiple gym access from £2</li>
             </ul>
         </div>
 
         <div class="columns col-12 col-sm-12 col-md-4 col-lg-4">
             <ul class="price">
                 <li class="header">Premium</li>
-                <li class="grey">$ 29.99 / year</li>
+                <li class="grey">£ 29.99 / month</li>
                 <li>Unrestricted 24/7 access</li>
                 <li>Access classes 14 days in advance</li>
                 <li>Include multiple gym access</li>
