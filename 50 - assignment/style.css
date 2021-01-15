@@ -78,9 +78,19 @@ input[type=text], input[type=password]{
     width: 100%;
     padding: 10px;
     text-align: center;
-    margin: 8px;
+    margin: 8px auto;
     display: inline-block;
+    border: 1px solid black;
 }
+
+/* #sign_up_form input[type=text], #sign_up_form input[type=password]{
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    margin: 8px auto;
+    display: inline-block;
+    border: 1px solid black;
+} */
 
 .modal-close{
     position: absolute;
@@ -114,9 +124,18 @@ input[type=text], input[type=password]{
     opacity: 0.8;
 }
 
-#sign_up_form{
+#formWrap{
     display: block;
     text-align: center;
+}
+
+#sign_up_form{
+    /* display: inline-block; */
+    margin: 0 auto;
+    width: 500px;
+    max-width: 100%;
+    text-align: center;
+
 }
 
 #sign_up_form h1{
@@ -235,6 +254,7 @@ input[type=text], input[type=password]{
 
   #priceContent{
       text-align: center;
+      margin: 15px;
   }
   
   #gymCards{
@@ -248,14 +268,6 @@ input[type=text], input[type=password]{
 
 #gymCardRow{
     column-rule: 20px;
-}
-
-.green{
-    color: green;
-}
-
-.red{
-    color: red;
 }
 
 .carousel-inner img{
@@ -294,19 +306,60 @@ i.icons{
     top: 25px;
 }
 
-.buttonWrapper{
-    text-align: center;
-    justify-content: center;
-}
+/* .buttonWrapper{
+    /* text-align: center; */
+    /* display: block;
+    max-width: 400px;
+    margin: auto; */
+/* } */ 
 
 i.icon{
     padding-bottom: 20px;
 }
 
+.formInput{
+    position: relative;
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+}
 
-/* #inputFields{
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+.formInput i {
+    position: absolute;
+    right: 10px;
+    top: 25px;
+    visibility: hidden;
+}
 
-} */
+.formInput small {
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+    visibility: hidden;
+
+}
+
+.formInput.success input{
+    border-color: #2ecc71;
+}
+
+.formInput.error input{
+    border-color: #e74c3c;
+}
+
+.formInput.success i.fa-check-circle{
+    color: #2ecc71;
+    visibility: visible;
+}
+
+.formInput.error i.fa-exclamation-circle{
+    color: #e74c3c;
+    visibility: visible;
+}
+
+.formInput.error small{
+    color: #e74c3c;
+    visibility: visible;
+}
+
+
+

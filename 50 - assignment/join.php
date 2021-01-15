@@ -118,51 +118,96 @@ session_start();
     </header>
 
     <section>
-        <form id="sign_up_form" class="container">
-            <div class="register">
-                <h1>Register</h1>
-                <p>Please fill in this form to create an account</p>
-                <hr>
-            </div>
+        <div id = "formWrap" class="container">
+            <form class = "col-6" id="sign_up_form">
+                <div class="register">
+                    <h1>Register</h1>
+                    <p>Please fill in this form to create an account</p>
+                    <hr>
+                </div>
 
-            <!-- <label for="username"><b>Create Username</b></label> -->
-            <input type="text" placeholder="Username" id="username" name="username" required>
+                <div class="formInput">
+                    <input type="text" placeholder="Username" id="username" name="username">
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error Message</small>
+                </div>
 
-            <!-- <label for="pswd"><b>Create Password</b></label> -->
-            <input type="password" placeholder="Password" id="pswd" name="pswd" required>
+                <div class="formInput">
+                    <input type="password" placeholder="Password" id="pswd" name="pswd">
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error Message</small>
+                </div>
 
-            <!-- <label for="fName"><b>First Name</b></label> -->
-            <input type="text" placeholder="First name" id="fName" name="fName" required>
+                <div class="formInput">
+                    <input type="text" placeholder="First name" id="fName" name="fName">
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error Message</small>
+                </div>
 
-            <!-- <label for="lName"><b>Last Name</b></label> -->
-            <input type="text" placeholder="Last name" id="lName" name="lName" required>
+                <div class="formInput">
+                    <input type="text" placeholder="Last name" id="lName" name="lName">
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error Message</small>
+                </div>
 
-            <!-- <label for="email"><b>Email</b></label> -->
-            <input type="text" placeholder="Email" id="email" name="email" required>
+                <div class="formInput">
+                    <input type="text" placeholder="Email" id="email" name="email">
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error Message</small>
+                </div>
 
-            <!-- <label for="age"><b>Age</b></label> -->
-            <input type="text" placeholder="Age" id="age" name="age" required>
+                <div class="formInput">
+                    <input type="text" placeholder="Age" id="age" name="age">
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error Message</small>
+                </div>
 
-            <!-- <label for="gender"><b>Gender</b></label> -->
-            <input type="text" placeholder="Gender" id="gender" name="gender">
+                <div class="formInput">
+                    <input type="text" placeholder="Gender" id="gender" name="gender">
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error Message</small>
+                </div>
 
-            <!-- <label for="streetAddress"><b>Street Address</b></label> -->
-            <input type="text" placeholder="Street Address" id="streetAddress" name="streetAddress" required>
+                <div class="formInput">
+                    <input type="text" placeholder="Street Address" id="streetAddress" name="streetAddress">
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error Message</small>
+                </div>
 
-            <!-- <label for="city"><b>City</b></label> -->
-            <input type="text" placeholder="City" id="city" name="city" required>
+                <div class="formInput">
+                    <input type="text" placeholder="City" id="city" name="city">
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error Message</small>
+                </div>
 
-            <!-- <label for="postcode"><b>Postcode</b></label> -->
-            <input type="text" placeholder="Postcode" id="postcode" name="postcode" required>
+                <div class="formInput">
+                    <input type="text" placeholder="Postcode" id="postcode" name="postcode">
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error Message</small>
+                </div>
 
-            <!-- <label for="county"><b>County</b></label> -->
-            <input type="text" placeholder="County" id="county" name="county" required>
-            
-            <div class="buttonWrapper">
-                <button type="submit" class="registerBtn btn btn-primary">Sign Up</button>
-            </div>  
+                <div class="formInput">
+                    <input type="text" placeholder="County" id="county" name="county">
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error Message</small>
+                </div>
 
-        </form>
+                <div class="buttonWrapper">
+                    <button type="submit" id="registerBtn" class="registerBtn btn btn-primary">Sign Up</button>
+                </div>
+            </form>
+        </div>
     </section>
 
     <!-- Bootstrap JS -->

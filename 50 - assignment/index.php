@@ -127,7 +127,7 @@ session_start();
                 </div>
                 <div class="col-12 col-sm-4 col-md-4 col-lg-4">
                     <i class="fas fa-address-book fa-4x icon"></i>
-                    <h3>Tailored Gym Programs</h3>
+                    <h3>Tailored Programs</h3>
                     <p>Our personal trainers work to create tailored training programs that are specific to your goals!</p>
                 </div>
                 <div class="col-12 col-sm-4 col-md-4 col-lg-4">
@@ -179,7 +179,6 @@ session_start();
 
         <section id="section3">
             <div class="container">
-                
             </div>
         </section>
 

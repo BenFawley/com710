@@ -1,11 +1,24 @@
 // Get the modal
-var logInModal = document.getElementById("logInModal");
+const logInModal = document.getElementById("logInModal");
 
 // Get the button that opens the modal
-var logInBtn = document.getElementById("modalOpenButton");
+const logInBtn = document.getElementById("modalOpenButton");
 
 //Get sign up modal
-var signUpModal = document.getElementById("signUpModal");
+const signUpModal = document.getElementById("signUpModal");
+
+const username = document.getElementById("username");
+const password = document.getElementById("pswd");
+const sign_up_form = document.getElementById("sign_up_form");
+const firstName = document.getElementById("fName");
+const lastName = document.getElementById("lName");
+const email = document.getElementById("email");
+const age = document.getElementById("age");
+const gender = document.getElementById("gender");
+const address = document.getElementById("streetAddress");
+const city = document.getElementById("city");
+const pc = document.getElementById("postcode");
+const county = document.getElementById("county");
 
 
 //Displays the modal when clicked
@@ -18,25 +31,126 @@ document.getElementById("closeButton").onclick = function () {
     logInModal.style.display = "none";
 }
 
-// function validateSignUpForm(){
-//     const un = document.getElementById("username").value;
-//     if (un.value == null || un.value == ""){
-//         un.classlist.add("red");
-//         return false;
-//     }
-//     const pw = document.getElementById("pswd").value;
-//     const fn = document.getElementById("fName").value;
-//     const ln = document.getElementById("lName").value;
-//     const mail = document.getElementById("email").value;
-//     const age = document.getElementById("age").value;
-//     const gen = document.getElementById("gender").value;
-//     const address = document.getElementById("streetAddress").value;
-//     const city = document.getElementById("city").value;
-//     const pc = document.getElementById("postcode").value;
-//     const county = document.getElementById("county").value;
+// -------- Form Validation ---------
 
-    
-// }
+
+
+function validateSignUpForm(e) {
+    const usernameValue = username.value;
+    const passwordValue = password.value;
+    const firstNameValue = firstName.value;
+    const lastNameValue = lastName.value;
+    const emailValue = email.value;
+    const ageValue = age.value;
+    const genderValue = gender.value;
+    const addressValue = address.value;
+    const cityValue = city.value;
+    const postcodeValue = pc.value;
+    const countyValue = county.value;
+
+
+    if (usernameValue == "") {
+        setErrorMessageFor(username, "Username cannot be blank");
+    } else {
+        setSuccessMessageFor(username);
+    }
+
+    if (passwordValue == "") {
+        setErrorMessageFor(password, "Password cannot be blank");
+    } else {
+        setSuccessMessageFor(password);
+    }
+
+    if (firstNameValue == "") {
+        setErrorMessageFor(firstName, "First name cannot be blank");
+    } else {
+        setSuccessMessageFor(firstName);
+    }
+
+    if (lastNameValue == "") {
+        setErrorMessageFor(lastName, "Last name cannot be blank");
+    } else {
+        setSuccessMessageFor(lastName);
+    }
+
+    if (emailValue == "") {
+        setErrorMessageFor(email, "Email cannot be blank");
+    } else {
+        setSuccessMessageFor(email);
+    }
+
+    if (ageValue == "") {
+        setErrorMessageFor(age, "Age cannot be blank");
+    } else {
+        setSuccessMessageFor(age);
+    }
+
+    if (genderValue == "") {
+        setErrorMessageFor(gender, "Gender cannot be blank");
+    } else {
+        setSuccessMessageFor(gender);
+    }
+
+    if (addressValue == "") {
+        setErrorMessageFor(address, "Address cannot be blank");
+    } else {
+        setSuccessMessageFor(address);
+    }
+
+    if (cityValue == "") {
+        setErrorMessageFor(city, "City cannot be blank");
+    } else {
+        setSuccessMessageFor(city);
+    }
+
+    if (postcodeValue == "") {
+        setErrorMessageFor(pc, "Postcode cannot be blank");
+    } else {
+        setSuccessMessageFor(pc);
+    }
+
+    if (countyValue == "") {
+        setErrorMessageFor(county, "County cannot be blank");
+    } else {
+        setSuccessMessageFor(county);
+    }
+
+    if (usernameValue == "" || passwordValue == "" || firstNameValue == "" || lastNameValue == "" || emailValue == "" || ageValue == "" || genderValue == "" || addressValue == "" || cityValue == "" || postcodeValue == "" || countyValue == "") {
+        alert("Please fill in all of the fields");
+        return false;
+    } else {
+        addSignUpForm(e);
+    }
+
+}
+
+if (sign_up_form) {
+    sign_up_form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        validateSignUpForm(e);
+    });
+}
+
+
+function setErrorMessageFor(input, message) {
+    const formInput = input.parentElement;
+    const small = formInput.querySelector("small");
+
+    small.innerText = message;
+
+    formInput.className = "formInput error";
+}
+
+function setSuccessMessageFor(input) {
+    const formInput = input.parentElement;
+    formInput.className = "formInput success";
+}
+
+//  -----------------------------
+
+
+
 
 // logout button functionality
 document.getElementById("logoutButton").onclick = function () {
@@ -57,26 +171,26 @@ document.getElementById("logoutButton").onclick = function () {
 }
 
 //Submitting sign up form
-const sign_up_form = document.getElementById("sign_up_form");
-if (sign_up_form) {
-    sign_up_form.addEventListener("submit", addSignUpForm);
-}
+// const sign_up_form = document.getElementById("sign_up_form");
+// if (sign_up_form) {
+//     sign_up_form.addEventListener("submit", addSignUpForm);
+// }
 
 function addSignUpForm(e) {
     e.preventDefault();
 
     var data = new FormData();
-    data.append("username", document.getElementById("username").value);
-    data.append("pswd", document.getElementById("pswd").value);
-    data.append("first_name", document.getElementById("fName").value);
-    data.append("last_name", document.getElementById("lName").value);
-    data.append("email", document.getElementById("email").value);
-    data.append("age", document.getElementById("age").value);
-    data.append("gender", document.getElementById("gender").value);
-    data.append("street_address", document.getElementById("streetAddress").value);
-    data.append("city", document.getElementById("city").value);
-    data.append("postcode", document.getElementById("postcode").value);
-    data.append("county", document.getElementById("county").value);
+    data.append("username", username.value);
+    data.append("pswd", password.value);
+    data.append("first_name", firstName.value);
+    data.append("last_name", lastName.value);
+    data.append("email", email.value);
+    data.append("age", age.value);
+    data.append("gender", gender.value);
+    data.append("street_address", address.value);
+    data.append("city", city.value);
+    data.append("postcode", pc.value);
+    data.append("county", county.value);
 
     data.append("action", "create");
 
@@ -103,7 +217,6 @@ function login(e) {
     let loginForm = document.getElementById("loginForm");
     data.append("username", loginForm.uName.value);
     data.append("password", loginForm.pass.value);
-
     data.append("action", "login");
 
     var xhttp = new XMLHttpRequest();
@@ -156,7 +269,7 @@ if (document.getElementById("loadUser") != null) {
 //     updateDetailsForm.addEventListener("submit", updateUser);
 // }
 
-if(document.getElementById("updateDetailsForm") != null){
+if (document.getElementById("updateDetailsForm") != null) {
     document.getElementById("updateDetailsForm").addEventListener("submit", updateUser);
 }
 
