@@ -39,9 +39,9 @@ session_start();
                     <li class="nav-item">
                         <a class="nav-link" href="index.php"><i class="fas fa-home"></i> Home </a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="gyms.php"><i class="fas fa-map-marker"></i> Gyms </a>
-                    </li>
+                    </li> -->
                     <li class="nav-item active">
                         <a class="nav-link" href="training.php"><i class="fas fa-clipboard"></i> Training Plans </a>
                     </li>
@@ -122,46 +122,45 @@ session_start();
             <h3 id="sectionTitle2">Training Plans</h3>
             <hr id="sectionLine">
             <div class="row">
-                <div class="col-12 col-sm-12 col-md-6 col-lg-3">
-                    <div class="card" style="width:200px">
+                <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+                    <div class="card">
                         <img class="card-img-top" src="strength.jpg" alt="strength training">
                         <div class="card-body">
-                            <h4 class="card-title">Strength and Conditioning</h4>
+                            <h5 class="card-title">Strength & Conditioning</h4>
                             <p class="card-text">Our coaches offer Personalised training programs that are aimed at increasing strength and hypertrophy</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-12 col-sm-12 col-md-6 col-lg-3">
-                    <div class="card" style="width:200px">
+                <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+                    <div class="card">
                         <img class="card-img-top" src="pilates.jpg" alt="Yoga and Pilates">
                         <div class="card-body">
-                            <h4 class="card-title">Yoga and Pilates</h4>
+                            <h5 class="card-title">Yoga and Pilates</h4>
                             <p class="card-text">There are multiple yoga and pilates classes available throughout the week, perfect for improving flexibility and posture </p>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-12 col-sm-12 col-md-6 col-lg-3">
-                    <div class="card" style="width:200px">
+                <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+                    <div class="card">
                         <img class="card-img-top" src="cardio.jpg" alt="Cardio">
                         <div class="card-body">
-                            <h4 class="card-title">Cardio</h4>
+                            <h5 class="card-title">Cardio</h4>
                             <p class="card-text"> There are a number of coach led sessions and training plans with a range wide of cardio equipment such as treadmills and cycling machines </p>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-12 col-sm-12 col-md-6 col-lg-3">
-                    <div class="card" style="width:200px">
+                <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+                    <div class="card">
                         <img class="card-img-top" src="flex.jpg" alt="Flexibility">
                         <div class="card-body">
-                            <h4 class="card-title">Flexibility</h4>
+                            <h5 class="card-title">Flexibility</h4>
                             <p class="card-text"> Our coaches have detailed knowledge and offer a range of interventions and techniques to improve flexibility and help prevent injuries </p>
                         </div>
                     </div>
                 </div>
-
             </div>
 
         </section>
@@ -170,48 +169,65 @@ session_start();
             <h3 id="sectionTitle2">Personal Trainers</h3>
             <hr id="sectionLine">
             <div class="row">
-                <div class="col-12 col-sm-12 col-md-6 col-lg-3">
-                    <div class="card" style="width:200px">
-                        <img class="card-img-top" src="joe.jpg" alt="Trainer1">
+                <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+                    <div class="card trainer-card">
+                        <img class="card-img-top gym-trainer" src="joe.jpg" alt="Trainer1">
                         <div class="card-body">
                             <h4 class="card-title">Joe Bloggs</h4>
-                            <p class="card-text">- BSc Sport Science<br>- Level 3 Personal Trainer<br>- Specialises in Strength and Conditioning</p>
+                            <p class="card-text">- BSc Sport Science<br>- Level 3 Personal Trainer</p>
+                        </div>
+                        <div class="card-footer">
+                            <i class = "fab fa-twitter"></i>
+                            <i class = "fab fa-instagram-square"></i>
+                            <i class = "fas fa-envelope"></i>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-12 col-sm-12 col-md-6 col-lg-3">
-                    <div class="card" style="width:200px">
-                        <img class="card-img-top" src="john.jpg" alt="Trainer2">
+                <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+                    <div class="card trainer-card">
+                        <img class="card-img-top gym-trainer" src="john.jpg" alt="Trainer2">
                         <div class="card-body">
                             <h4 class="card-title">John Smith</h4>
-                            <p class="card-text">- BSc Sports Coaching<br>- Level 3 Personal Trainer<br>- Specialises in Strength and Conditioning/Cardio</p>
+                            <p class="card-text">- BSc Sports Coaching<br>- Level 3 Personal Trainer</p>
+                        </div>
+                        <div class="card-footer">
+                            <i class = "fab fa-twitter"></i>
+                            <i class = "fab fa-instagram-square"></i>
+                            <i class = "fas fa-envelope"></i>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-12 col-sm-12 col-md-6 col-lg-3">
-                    <div class="card" style="width:200px">
-                        <img class="card-img-top" src="lucy.jpg" alt="Trainer3">
+                <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+                    <div class="card trainer-card">
+                        <img class="card-img-top gym-trainer" src="lucy.jpg" alt="Trainer3">
                         <div class="card-body">
                             <h4 class="card-title">Lucy Jones</h4>
-                            <p class="card-text">- BSc Sport and Exercise Science<br>- Level 2 Personal Trainer<br> - Specialises in Flexibility/Yoga </p>
+                            <p class="card-text">- BSc Sport and Exercise Science<br>- Level 2 Personal Trainer</p>
+                        </div>
+                        <div class="card-footer">
+                            <i class = "fab fa-twitter"></i>
+                            <i class = "fab fa-instagram-square"></i>
+                            <i class = "fas fa-envelope"></i>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-12 col-sm-12 col-md-6 col-lg-3">
-                    <div class="card" style="width:200px">
-                        <img class="card-img-top" src="amy.jpg" alt="Trainer4">
+                <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+                    <div class="card trainer-card">
+                        <img class="card-img-top gym-trainer" src="amy.jpg" alt="Trainer4">
                         <div class="card-body">
                             <h4 class="card-title">Amy Smith</h4>
-                            <p class="card-text">- BSc Sports Performance <br>- Level 2 Personal Trainer<br> - Specialises in Cardio/Flexibility</p>
+                            <p class="card-text">- BSc Sports Performance <br>- Level 2 Personal Trainer</p>
+                        </div>
+                        <div class="card-footer">
+                            <i class = "fab fa-twitter"></i>
+                            <i class = "fab fa-instagram-square"></i>
+                            <i class = "fas fa-envelope"></i>
                         </div>
                     </div>
                 </div>
-
-
-
     </main>
 
     <!-- Bootstrap JS -->

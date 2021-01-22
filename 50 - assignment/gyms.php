@@ -109,36 +109,17 @@ session_start();
         <div class="row call-to-action bg-dark" <?php
                                                 if (isset($_SESSION["uid"])) echo "style = 'display: none;'"
                                                 ?>>
-            <h5>Start your Journey Now!</h5>
+            <h5>Dare To Be Great!</h5>
             <a class = "btn btn-primary" id="joinLink" href="join.php">Join now</a>
         </div>
     </header>
-    <main id="gymCards" class="container">
-        <div id="gymCardRow" class="row ">
-            <div id="gymCards" class="card col-12 col-sm-6 col-md-6 col-lg-6 " style="width:200px">
-                <div class="card-body">
-                    <h4 class="gym-card-title">Southampton Town Centre</h4>
-                    <p class="gym-card-text"> Solent Fitness, First Floor Hampshire House, 176-178 High St, Southampton SO14 2BY </p>
-                </div>
-            </div>
-            <div id="gymCards" class="card col-12 col-sm-6 col-md-6 col-lg-6" style="width:200px">
-                <div class="card-body">
-                    <h4 class="gym-card-title">Southampton Shirely</h4>
-                    <p class="gym-card-text"> Solent Fitness, 366-368 Shirley Rd, Shirley, Southampton SO15 3HY </p>
-                </div>
-            </div>
-            <div id="gymCards" class="card col-12 col-sm-6 col-md-6 col-lg-6" style="width:200px">
-                <div class="card-body">
-                    <h4 class="gym-card-title">Southampton East</h4>
-                    <p class="gym-card-text"> Solent Fitness, Antelope Park, Bursledon Rd, Thornhill, Southampton SO19 8NE</p>
-                </div>
-            </div>
-            <div id="gymCards" class="card col-12 col-sm-6 col-md-6 col-lg-6" style="width:200px">
-                <div class="card-body">
-                    <h4 class="gym-card-title">Portsmouth</h4>
-                    <p class="gym-card-text"> Solent Fitness, The Pompey Centre, Rodney Rd, Southsea, Portsmouth, Southsea PO4 8SX</p>
-                </div>
-            </div>
+    <main id = "map-container" class="container">
+        <div>
+            <h3 id="sectionTitle">Where can you find us?</h3>
+            <hr id="sectionLine">
+        </div>
+        <div id = "map-wrapper">
+            <div id=""></div>
         </div>
     </main>
 
@@ -146,7 +127,7 @@ session_start();
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="script.js"></script>
-
+   
 </body>
 
 </html>

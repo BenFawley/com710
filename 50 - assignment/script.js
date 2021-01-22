@@ -329,6 +329,118 @@ if (document.getElementById("deleteUser") != null) {
 
 }
 
+//Google Maps API
+
+let map;
+
+let markers = [
+    {
+        LatLng: { lat: 50.9020220, lng: -1.4046430 },
+        content: "<p>Solent Fitness, 176-178 High St, SO14 2BY</p>"
+    },
+    {
+        LatLng: { lat: 50.9193, lng: -1.4309 },
+        content: "<p>Solent Fitness, 366-368 Shirley Rd, SO15 3HY </p>"
+    },
+    {
+        LatLng: { lat: 50.9066, lng: -1.3390 },
+        content: "<p>Solent Fitness, Antelope Park, Bursledon Rd, SO19 8NE </p>"
+    },
+];
+
+function initMap() {
+
+    //creating map
+    let center = new google.maps.LatLng(50.9097, -1.4044);
+    map = new google.maps.Map(document.getElementById("map"), {
+        center: center,
+        zoom: 11,
+    });
+
+    for (let i = 0; i < markers.length; i++){
+        addMarker(markers[i]);
+    }
+}
+
+//adding markers
+function addMarker(properties) {
+    let marker = new google.maps.Marker({
+        position: properties.LatLng,
+        map: map
+    });
+
+    if (properties.content) {
+        let infoWindow = new google.maps.InfoWindow({
+            content: properties.content,
+        });
+
+        marker.addListener('click', () => {
+            infoWindow.open(map, marker);
+        })
+    }
+}
+
+// getting a 403 access denied error message when using code below
+
+// function initMap() {
+//     var map = new google.maps.Map(document.getElementById("map"), {
+//         center: new google.maps.LatLng(50.9097, -1.4044),
+//         zoom: 12
+//     });
+//     var infoWindow = new google.maps.InfoWindow;
+
+//     downloadUrl("https://storage.googleapis.com/mapsdevsite/json/markers.php", function (data) {
+//         var xml = data.responseXML;
+//         var markers = xml.documentElement.getElementsByTagName("marker");
+//         Array.prototype.forEach.call(markers, function (markerElem) {
+//             var id = markerElem.getAttribute("id");
+//             var name = markerElem.getAttribute("name");
+//             var address = markerElem.getAttribute("address");
+//             var point = new google.maps.LatLng(
+//                 parseFloat(markerElem.getAttribute("lat")),
+//                 parseFloat(markerElem.getAttribute("lng")));
+
+//             var infowincontent = document.createElement("div");
+//             var strong = document.createElement("strong");
+//             strong.textContent = name
+//             infowincontent.appendChild(strong);
+//             infowincontent.appendChild(document.createElement("br"));
+
+//             var text = document.createElement("text");
+//             text.textContent = address
+//             infowincontent.appendChild(text);
+//             var marker = new google.maps.Marker({
+//                 map: map,
+//                 position: point,
+//                 // label: icon.label
+//             });
+//             marker.addListener("click", function () {
+//                 infoWindow.setContent(infowincontent);
+//                 infoWindow.open(map, marker);
+//             });
+//         });
+//     });
+// }
+
+
+// function downloadUrl(url, callback) {
+//     var request = window.ActiveXObject ?
+//         new ActiveXObject("Microsoft.XMLHTTP") :
+//         new XMLHttpRequest;
+
+//     request.onreadystatechange = function() {
+//         if (request.readyState == 4) {
+//             request.onreadystatechange = doNothing;
+//             callback(request, request.status);
+//         }
+//     };
+
+//     request.open("GET", url, true);
+//     request.send(null);
+// }
+
+// function doNothing() {}
+
 
 
 
