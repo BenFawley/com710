@@ -108,16 +108,80 @@ session_start();
 
         <!--Header Image-->
         <div class="row">
-            <img id="headerImage" class="col-12" src="headImage.png" alt="Personal Trainer">
+            <img id="headerImage" class="col-12 img-fluid" src="gymheader2.jpg" alt="Personal Trainer">
         </div>
         <div class="row call-to-action bg-dark" <?php
                                                 if (isset($_SESSION["uid"])) echo "style = 'display: none;'"
                                                 ?>>
             <h5>Start your Journey Now!</h5>
-            <a class = "btn btn-primary" id="joinLink" href="join.php">Join now</a>
+            <a class = "btn btn-primary btn-margin" id="joinLink" href="join.php">Join now</a>
         </div>
     </header>
     <main>
+    <section class="container" id="coachSection">
+            <h3 id="sectionTitle2">Personal Trainers</h3>
+            <hr id="sectionLine">
+            <div class="row">
+                <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+                    <div class="card trainer-card">
+                        <img class="card-img-top gym-trainer" src="joe.jpg" alt="Trainer1">
+                        <div class="card-body">
+                            <h4 class="card-title">Joe Bloggs</h4>
+                            <p class="card-text">- BSc Sport Science<br>- Level 3 Personal Trainer</p>
+                        </div>
+                        <div class="card-footer">
+                            <i class = "fab fa-twitter"></i>
+                            <i class = "fab fa-instagram-square"></i>
+                            <i class = "fab fa-facebook"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+                    <div class="card trainer-card">
+                        <img class="card-img-top gym-trainer" src="john.jpg" alt="Trainer2">
+                        <div class="card-body">
+                            <h4 class="card-title">John Smith</h4>
+                            <p class="card-text">- BSc Sports Coaching<br>- Level 3 Personal Trainer</p>
+                        </div>
+                        <div class="card-footer">
+                            <i class = "fab fa-twitter"></i>
+                            <i class = "fab fa-instagram-square"></i>
+                            <i class = "fab fa-facebook"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+                    <div class="card trainer-card">
+                        <img class="card-img-top gym-trainer" src="lucy.jpg" alt="Trainer3">
+                        <div class="card-body">
+                            <h4 class="card-title">Lucy Jones</h4>
+                            <p class="card-text">- BSc Sport and Exercise Science<br>- Level 2 Personal Trainer</p>
+                        </div>
+                        <div class="card-footer">
+                            <i class = "fab fa-twitter"></i>
+                            <i class = "fab fa-instagram-square"></i>
+                            <i class = "fab fa-facebook"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+                    <div class="card trainer-card">
+                        <img class="card-img-top gym-trainer" src="amy.jpg" alt="Trainer4">
+                        <div class="card-body">
+                            <h4 class="card-title">Amy Smith</h4>
+                            <p class="card-text">- BSc Sports Performance <br>- Level 2 Personal Trainer</p>
+                        </div>
+                        <div class="card-footer">
+                            <i class = "fab fa-twitter"></i>
+                            <i class = "fab fa-instagram-square"></i>
+                            <i class = "fab fa-facebook"></i>
+                        </div>
+                    </div>
+                </div>
+
         <section class="container" id="trainingSection">
             <h3 id="sectionTitle2">Training Plans</h3>
             <hr id="sectionLine">
@@ -164,70 +228,6 @@ session_start();
             </div>
 
         </section>
-
-        <section class="container" id="coachSection">
-            <h3 id="sectionTitle2">Personal Trainers</h3>
-            <hr id="sectionLine">
-            <div class="row">
-                <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-                    <div class="card trainer-card">
-                        <img class="card-img-top gym-trainer" src="joe.jpg" alt="Trainer1">
-                        <div class="card-body">
-                            <h4 class="card-title">Joe Bloggs</h4>
-                            <p class="card-text">- BSc Sport Science<br>- Level 3 Personal Trainer</p>
-                        </div>
-                        <div class="card-footer">
-                            <i class = "fab fa-twitter"></i>
-                            <i class = "fab fa-instagram-square"></i>
-                            <i class = "fas fa-envelope"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-                    <div class="card trainer-card">
-                        <img class="card-img-top gym-trainer" src="john.jpg" alt="Trainer2">
-                        <div class="card-body">
-                            <h4 class="card-title">John Smith</h4>
-                            <p class="card-text">- BSc Sports Coaching<br>- Level 3 Personal Trainer</p>
-                        </div>
-                        <div class="card-footer">
-                            <i class = "fab fa-twitter"></i>
-                            <i class = "fab fa-instagram-square"></i>
-                            <i class = "fas fa-envelope"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-                    <div class="card trainer-card">
-                        <img class="card-img-top gym-trainer" src="lucy.jpg" alt="Trainer3">
-                        <div class="card-body">
-                            <h4 class="card-title">Lucy Jones</h4>
-                            <p class="card-text">- BSc Sport and Exercise Science<br>- Level 2 Personal Trainer</p>
-                        </div>
-                        <div class="card-footer">
-                            <i class = "fab fa-twitter"></i>
-                            <i class = "fab fa-instagram-square"></i>
-                            <i class = "fas fa-envelope"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-                    <div class="card trainer-card">
-                        <img class="card-img-top gym-trainer" src="amy.jpg" alt="Trainer4">
-                        <div class="card-body">
-                            <h4 class="card-title">Amy Smith</h4>
-                            <p class="card-text">- BSc Sports Performance <br>- Level 2 Personal Trainer</p>
-                        </div>
-                        <div class="card-footer">
-                            <i class = "fab fa-twitter"></i>
-                            <i class = "fab fa-instagram-square"></i>
-                            <i class = "fas fa-envelope"></i>
-                        </div>
-                    </div>
-                </div>
     </main>
 
     <!-- Bootstrap JS -->

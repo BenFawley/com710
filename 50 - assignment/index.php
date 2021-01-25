@@ -107,7 +107,9 @@ session_start();
                 <!-- <h2>Stand out on the Gym floor</h2> -->
                 <h3>Start your Journey Today!</h3>
                 <p>Welcome to Solent Fitness. We are a fitness center based in Southampton that aims to help you become the best version of yourself!</p>
-                <a class="btn btn-primary" id="joinLink" href="join.php">Join now</a>
+                <a class="btn btn-primary" id="joinLink" href="join.php" <?php
+                                                                            if (isset($_SESSION["uid"])) echo "style = 'display: none;'"
+                                                                         ?>>Join now</a>
             </div>
             <!--Header Image-->
             <!-- <div class="row">

@@ -63,35 +63,79 @@ function retrieve_user($id)
     $statement->bindValue(":id", $id);
     $statement->execute();
 
-    echo "<table class='table table-dark'>
-            <tr>
-            <th>First Name: </th>
-            <th>Last Name: </th>
-            <th> Age: </th>
-            <th> Gender: </th>
-            <th> Email: </th>
-            <th>Street Address: </th>
-            <th> City: </th>
-            <th> Postcode: </th>
-            <th> County: </th>
-            </tr>";
-
-    if ($statement->rowCount() == 1) {
+    if ($statement->rowCount() == 1){
         $details = $statement->fetch();
+        echo "<table class='table table-dark'>";
         echo "<tr>";
+        echo "<th>First Name:</th>";
         echo "<td>" . $details['first_name'] . "</td>";
+        echo "</tr>";
+        echo "<tr>";
+        echo "<th>Last Name:</th>";
         echo "<td>" . $details['last_name'] . "</td>";
+        echo "</tr>";
+        echo "<tr>";
+        echo "<th>Age:</th>";
         echo "<td>" . $details['age'] . "</td>";
+        echo "</tr>";
+        echo "<tr>";
+        echo "<th>Gender:</th>";
         echo "<td>" . $details['gender'] . "</td>";
+        echo "</tr>";
+        echo "<tr>";
+        echo "<th>Email:</th>";
         echo "<td>" . $details['email'] . "</td>";
+        echo "</tr>";
+        echo "<tr>";
+        echo "<th>Street Address:</th>";
         echo "<td>" . $details['street_address'] . "</td>";
+        echo "</tr>";
+        echo "<tr>";
+        echo "<th>City:</th>";
         echo "<td>" . $details['city'] . "</td>";
+        echo "</tr>";
+        echo "<tr>";
+        echo "<th>Postcode:</th>";
         echo "<td>" . $details['postcode'] . "</td>";
+        echo "</tr>";
+        echo "<tr>";
+        echo "<th>County:</th>";
         echo "<td>" . $details['county'] . "</td>";
         echo "</tr>";
+        echo "</table>";
+                 
     }
-    echo "</table>";
 }
+
+    // echo "<table class='table table-dark'>
+    //         <tr>
+    //         <th>First Name: </th>
+    //         <th>Last Name: </th>
+    //         <th> Age: </th>
+    //         <th> Gender: </th>
+    //         <th> Email: </th>
+    //         <th>Street Address: </th>
+    //         <th> City: </th>
+    //         <th> Postcode: </th>
+    //         <th> County: </th>
+    //         </tr>";
+
+    // if ($statement->rowCount() == 1) {
+    //     $details = $statement->fetch();
+    //     echo "<tr>";
+    //     echo "<td>" . $details['first_name'] . "</td>";
+    //     echo "<td>" . $details['last_name'] . "</td>";
+    //     echo "<td>" . $details['age'] . "</td>";
+    //     echo "<td>" . $details['gender'] . "</td>";
+    //     echo "<td>" . $details['email'] . "</td>";
+    //     echo "<td>" . $details['street_address'] . "</td>";
+    //     echo "<td>" . $details['city'] . "</td>";
+    //     echo "<td>" . $details['postcode'] . "</td>";
+    //     echo "<td>" . $details['county'] . "</td>";
+    //     echo "</tr>";
+    // }
+    // echo "</table>";
+// }
 
 //update user function
 function update_user($data, $id)

@@ -19,10 +19,11 @@ const address = document.getElementById("streetAddress");
 const city = document.getElementById("city");
 const pc = document.getElementById("postcode");
 const county = document.getElementById("county");
+const update_details_form = document.getElementById("updateDetailsForm");
 
 
 //Displays the modal when clicked
-logInBtn.onclick = function () {
+logInBtn.onclick = () => {
     logInModal.style.display = "block";
 }
 
@@ -119,7 +120,7 @@ function validateSignUpForm(e) {
         alert("Please fill in all of the fields");
         return false;
     } else {
-        addSignUpForm(e);
+        return true;
     }
 
 }
@@ -127,8 +128,9 @@ function validateSignUpForm(e) {
 if (sign_up_form) {
     sign_up_form.addEventListener("submit", (e) => {
         e.preventDefault();
-
-        validateSignUpForm(e);
+        if (validateSignUpForm(e)){
+            addSignUpForm(e);
+        }
     });
 }
 
@@ -169,12 +171,6 @@ document.getElementById("logoutButton").onclick = function () {
     xhttp.open("POST", "logout.php", true);
     xhttp.send(logout);
 }
-
-//Submitting sign up form
-// const sign_up_form = document.getElementById("sign_up_form");
-// if (sign_up_form) {
-//     sign_up_form.addEventListener("submit", addSignUpForm);
-// }
 
 function addSignUpForm(e) {
     e.preventDefault();
@@ -222,55 +218,44 @@ function login(e) {
     var xhttp = new XMLHttpRequest();
     xhttp.addEventListener("load", e => {
         if (e.target.status == 200) {
-            // document.getElementById("loginOrOut").innerHTML = "<button id='logoutButton' class='btn btn-primary' type='submit' name='logout'>Logout</button>";
-            // alert(e.target.responseText);
             logInModal.style.display = "none";
-
             location.reload();
         }
     });
-
-
     xhttp.open("POST", "login.php", true);
     xhttp.send(data);
-
-
 }
 
-// Retrieve user AJAX
-if (document.getElementById("loadUser") != null) {
-    document.getElementById("loadUser").onclick = function (e) {
-        e.preventDefault();
 
-        var loadData = new FormData();
+function loadUser(){
 
-        loadData.append("action", "retrieve");
+    let action = new FormData();
+    action.append("action", "retrieve");
 
-        var xhttp = new XMLHttpRequest();
-        xhttp.addEventListener("load", e => {
-            if (e.target.status == 200) {
-                document.getElementById("userDetails").innerHTML = e.target.responseText;
-                document.getElementById("loadUser").style.display = "none";
-                document.getElementById("updateUser").style.display = "block";
-                document.getElementById("deleteUser").style.display = "block";
-            }
-        });
-        xhttp.open("POST", "users.php", true);
-        xhttp.send(loadData);
-
-
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+       document.getElementById("userDetails").innerHTML = this.responseText;
+      }
     };
-}
+    xhttp.open("POST", "users.php", true);
+    xhttp.send(action);
+    console.log(action);
+  }
 
-//Update User 
+  // UPDATE USER
 
-// const updateDetailsForm = document.getElementById("updateDetailsForm");
-// if (updateDetailsForm) {
-//     updateDetailsForm.addEventListener("submit", updateUser);
+// if (document.getElementById("updateDetailsForm") != null) {
+//     document.getElementById("updateDetailsForm").addEventListener("submit", updateUser);
 // }
 
-if (document.getElementById("updateDetailsForm") != null) {
-    document.getElementById("updateDetailsForm").addEventListener("submit", updateUser);
+if (update_details_form){
+    update_details_form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        if (validateSignUpForm(e)){
+            updateUser(e);
+        }
+    });
 }
 
 function updateUser(e) {
@@ -380,66 +365,6 @@ function addMarker(properties) {
     }
 }
 
-// getting a 403 access denied error message when using code below
-
-// function initMap() {
-//     var map = new google.maps.Map(document.getElementById("map"), {
-//         center: new google.maps.LatLng(50.9097, -1.4044),
-//         zoom: 12
-//     });
-//     var infoWindow = new google.maps.InfoWindow;
-
-//     downloadUrl("https://storage.googleapis.com/mapsdevsite/json/markers.php", function (data) {
-//         var xml = data.responseXML;
-//         var markers = xml.documentElement.getElementsByTagName("marker");
-//         Array.prototype.forEach.call(markers, function (markerElem) {
-//             var id = markerElem.getAttribute("id");
-//             var name = markerElem.getAttribute("name");
-//             var address = markerElem.getAttribute("address");
-//             var point = new google.maps.LatLng(
-//                 parseFloat(markerElem.getAttribute("lat")),
-//                 parseFloat(markerElem.getAttribute("lng")));
-
-//             var infowincontent = document.createElement("div");
-//             var strong = document.createElement("strong");
-//             strong.textContent = name
-//             infowincontent.appendChild(strong);
-//             infowincontent.appendChild(document.createElement("br"));
-
-//             var text = document.createElement("text");
-//             text.textContent = address
-//             infowincontent.appendChild(text);
-//             var marker = new google.maps.Marker({
-//                 map: map,
-//                 position: point,
-//                 // label: icon.label
-//             });
-//             marker.addListener("click", function () {
-//                 infoWindow.setContent(infowincontent);
-//                 infoWindow.open(map, marker);
-//             });
-//         });
-//     });
-// }
-
-
-// function downloadUrl(url, callback) {
-//     var request = window.ActiveXObject ?
-//         new ActiveXObject("Microsoft.XMLHTTP") :
-//         new XMLHttpRequest;
-
-//     request.onreadystatechange = function() {
-//         if (request.readyState == 4) {
-//             request.onreadystatechange = doNothing;
-//             callback(request, request.status);
-//         }
-//     };
-
-//     request.open("GET", url, true);
-//     request.send(null);
-// }
-
-// function doNothing() {}
 
 
 

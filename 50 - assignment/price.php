@@ -104,13 +104,13 @@ session_start();
 
         <!--Header Image-->
         <div class="row">
-            <img id="headerImage" class="col-12" src="headImage.png" alt="Personal Trainer">
+            <img id="headerImage" class="col-12" src="gymheader2.jpg" alt="Personal Trainer">
         </div>
         <div class="row call-to-action bg-dark" <?php
                                                 if (isset($_SESSION["uid"])) echo "style = 'display: none;'"
                                                 ?>>
             <h5>Start your Journey Now!</h5>
-            <a class = "btn btn-primary" id="joinLink" href="join.php">Join now</a>
+            <a class = "btn btn-primary btn-margin" id="joinLink" href="join.php">Join now</a>
         </div>
     </header>
     <main id="priceContent" class="row">
@@ -118,17 +118,16 @@ session_start();
         <div class="columns col-12 col-sm-12 col-md-4 col-lg-4">
             <ul class="price">
                 <li class="header">Basic</li>
-                <li class="grey">£ 9.99 / month</li>
+                <li class="grey">£9.99 / month</li>
                 <li>Access limited to off-peak hours</li>
                 <li>Access classes 7 days in advance</li>
             </ul>
         </div>
-        <!-- style="background-color:#4CAF50" -->
 
         <div class="columns col-12 col-sm-12 col-md-4 col-lg-4">
             <ul class="price">
                 <li class="header" style="background-color:#337ab7">Pro</li>
-                <li class="grey">£ 19.99 / month</li>
+                <li class="grey">£19.99 / month</li>
                 <li>Unrestricted 24/7 access</li>
                 <li>Access classess 7 days in advance</li>
                 <li>Multiple gym access from £2</li>
@@ -138,7 +137,7 @@ session_start();
         <div class="columns col-12 col-sm-12 col-md-4 col-lg-4">
             <ul class="price">
                 <li class="header">Premium</li>
-                <li class="grey">£ 29.99 / month</li>
+                <li class="grey">£29.99 / month</li>
                 <li>Unrestricted 24/7 access</li>
                 <li>Access classes 14 days in advance</li>
                 <li>Include multiple gym access</li>

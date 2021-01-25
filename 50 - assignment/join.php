@@ -110,7 +110,7 @@ session_start();
 
         <!--Header Image-->
         <div class="row">
-            <img id="headerImage" class="col-12" src="headImage.png" alt="Personal Trainer">
+            <img id="headerImage" class="col-12" src="gymheader2.jpg" alt="Personal Trainer">
         </div>
         <div class="row call-to-action bg-dark">
 

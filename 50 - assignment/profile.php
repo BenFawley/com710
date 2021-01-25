@@ -24,7 +24,7 @@ if (!isset($_SESSION["uid"])) {
         <script src="https://kit.fontawesome.com/4323ba3d16.js" crossorigin="anonymous"></script>
     </head>
 
-    <body>
+    <body onload ="loadUser()">
         <header class="container-fluid">
             <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
                 <a class="navbar-brand" href="index.php"><img id="logo" src="logo.png" width="120" height="40"></a>
@@ -109,7 +109,7 @@ if (!isset($_SESSION["uid"])) {
 
             <!--Header Image-->
             <div class="row">
-                <img id="headerImage" class="col-12" src="headImage.png" alt="Personal Trainer">
+                <img id="headerImage" class="col-12" src="gymheader2.jpg" alt="Personal Trainer">
             </div>
             <div class="row call-to-action bg-dark" <?php
                                                     if (isset($_SESSION["uid"])) echo "style = 'display: none;'"
@@ -119,17 +119,14 @@ if (!isset($_SESSION["uid"])) {
         </header>
 
         <section class="container" id="detailsSection">
-            <h2 id="detailsHeading">Your Details</h2>
+            <h2 id="detailsHeading">Your Profile</h2>
             <br>
-            <div id="loadUserDiv">
-                <button id="loadUser" class="btn btn-primary">View Details</button> <br>
-            </div>
             <div id="userDetails" class="row table-responsive">
 
             </div>
-            <div>
-                <a id="updateUser" class="btn btn-primary ml-auto" href="update.php" role="button">Update Details</a><br>
-                <button id="deleteUser" class="btn btn-primary ml-auto">Delete Profile</button> <br>
+            <div id ="profile-buttons">
+                <a id="updateUser" class="btn btn-primary" href="update.php" role="button">Update Details</a>
+                <button id="deleteUser" class="btn btn-danger">Delete Profile</button>
             </div>
 
 
