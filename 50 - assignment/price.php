@@ -21,96 +21,98 @@ session_start();
 </head>
 
 <body>
-    <header class="container-fluid">
-        <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
-            <a class="navbar-brand" href="index.php"><img id="logo" src="logo.png" width="120" height="40"></a>
+    <header>
+        <div class="header-image">
+            <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+                <a class="navbar-brand" href="index.php"><img id="logo" src="logo.png" width="120" height="40"></a>
 
-            <!--Collapsible Button-->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <!--Navbar Links-->
-            <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php"><i class="fas fa-home"></i> Home </a>
-                    </li>
-                    <!-- <li class="nav-item">
+                <!--Collapsible Button-->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!--Navbar Links-->
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php"><i class="fas fa-home"></i> Home </a>
+                        </li>
+                        <!-- <li class="nav-item">
                         <a class="nav-link" href="gyms.php"><i class="fas fa-map-marker"></i> Gyms </a>
                     </li> -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="training.php"><i class="fas fa-clipboard"></i> Training Plans </a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="price.php"><i class="fas fa-address-card"></i> Membership </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="profile.php" <?php
-                                                                if (!isset($_SESSION["uid"])) echo "style = 'display: none;'"
-                                                                ?>><i class="fas fa-user"></i> My Profile </a>
-                    </li>
-                </ul>
-                <!--Sign Up/Login Navbar-->
-                <div id="loginOrOut" class=ml-auto>
-                    <button id='logoutButton' class='btn btn-primary' type='submit' name='logout' <?php
-                                                                                                    if (!isset($_SESSION["uid"])) echo "style = 'display: none;'"
-                                                                                                    ?>>Logout</button>
-                    <ul class="nav navbar-nav" <?php
-                                                if (isset($_SESSION["uid"])) echo "style = 'display: none;'"
-                                                ?>>
                         <li class="nav-item">
-                            <a href="join.php" class="nav-link"><span class="fas fa-user-plus"></span> Sign Up</a>
+                            <a class="nav-link" href="training.php"><i class="fas fa-clipboard"></i> Training Plans </a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="price.php"><i class="fas fa-address-card"></i> Membership </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" data-toggle="modal" id="modalOpenButton" class="nav-link"><span class="fas fa-sign-in-alt"></span> Login</a>
+                            <a class="nav-link" href="profile.php" <?php
+                                                                    if (!isset($_SESSION["uid"])) echo "style = 'display: none;'"
+                                                                    ?>><i class="fas fa-user"></i> My Profile </a>
                         </li>
                     </ul>
+                    <!--Sign Up/Login Navbar-->
+                    <div id="loginOrOut" class=ml-auto>
+                        <button id='logoutButton' class='btn btn-primary' type='submit' name='logout' <?php
+                                                                                                        if (!isset($_SESSION["uid"])) echo "style = 'display: none;'"
+                                                                                                        ?>>Logout</button>
+                        <ul class="nav navbar-nav" <?php
+                                                    if (isset($_SESSION["uid"])) echo "style = 'display: none;'"
+                                                    ?>>
+                            <li class="nav-item">
+                                <a href="join.php" class="nav-link"><span class="fas fa-user-plus"></span> Sign Up</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" data-toggle="modal" id="modalOpenButton" class="nav-link"><span class="fas fa-sign-in-alt"></span> Login</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
+            </nav>
+
+            <!--Creating a log in Modal-->
+            <div id="logInModal" class="modal">
+
+                <!--Modal Content-->
+                <form id="loginForm" class="modal-content animate" action="login.php" method="post">
+                    <div class="imageContainer">
+                        <i id="loginImage" class="fas fa-users fa-2x"></i>
+                        <h4>Member Login</h2>
+                    </div>
+
+                    <div class="container">
+                        <div class="input-icons">
+                            <i id="i1" class="fas fa-user icons"></i>
+                            <input type="text" placeholder="Username" name="uName" required>
+                        </div>
+
+                        <div class="input-icons">
+                            <i id="i2" class="fas fa-lock icons"></i>
+                            <input type="password" placeholder="Password" name="pass" required>
+                        </div>
+
+                        <div id="buttonContainer">
+                            <button id="loginButton" class="btn btn-primary" type="submit" name="login_submit">Login</button> <br>
+                        </div>
+
+                        <input id="rememberMe" type="checkbox" checked="checked" name="remember"> Remember
+
+                        <span id="closeButton" class="modal-close">X</span>
+
+                    </div>
+                </form>
             </div>
-        </nav>
 
-        <!--Creating a log in Modal-->
-        <div id="logInModal" class="modal">
-
-            <!--Modal Content-->
-            <form id="loginForm" class="modal-content animate" action="login.php" method="post">
-                <div class="imageContainer">
-                    <i id="loginImage" class="fas fa-users fa-2x"></i>
-                    <h4>Member Login</h2>
-                </div>
-
-                <div class="container">
-                    <div class="input-icons">
-                        <i id="i1" class="fas fa-user icons"></i>
-                        <input type="text" placeholder="Username" name="uName" required>
-                    </div>
-
-                    <div class="input-icons">
-                        <i id="i2" class="fas fa-lock icons"></i>
-                        <input type="password" placeholder="Password" name="pass" required>
-                    </div>
-
-                    <div id="buttonContainer">
-                        <button id="loginButton" class="btn btn-primary" type="submit" name="login_submit">Login</button> <br>
-                    </div>
-
-                    <input id="rememberMe" type="checkbox" checked="checked" name="remember"> Remember
-
-                    <span id="closeButton" class="modal-close">X</span>
-
-                </div>
-            </form>
-        </div>
-
-        <!--Header Image-->
-        <div class="row">
+            <!--Header Image-->
+            <!-- <div class="row">
             <img id="headerImage" class="col-12" src="gymheader2.jpg" alt="Personal Trainer">
+        </div> -->
         </div>
         <div class="row call-to-action bg-dark" <?php
                                                 if (isset($_SESSION["uid"])) echo "style = 'display: none;'"
                                                 ?>>
             <h5>Start your Journey Now!</h5>
-            <a class = "btn btn-primary btn-margin" id="joinLink" href="join.php">Join now</a>
+            <a class="btn btn-primary btn-margin" id="joinLink" href="join.php">Join now</a>
         </div>
     </header>
     <main id="priceContent" class="row">

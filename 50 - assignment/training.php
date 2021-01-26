@@ -25,100 +25,102 @@ session_start();
 </head>
 
 <body>
-    <header class="container-fluid">
-        <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
-            <a class="navbar-brand" href="index.php"><img id="logo" src="logo.png" width="120" height="40"></a>
+    <header>
+        <div class="header-image">
+            <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+                <a class="navbar-brand" href="index.php"><img id="logo" src="logo.png" width="120" height="40"></a>
 
-            <!--Collapsible Button-->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <!--Navbar Links-->
-            <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php"><i class="fas fa-home"></i> Home </a>
-                    </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="gyms.php"><i class="fas fa-map-marker"></i> Gyms </a>
-                    </li> -->
-                    <li class="nav-item active">
-                        <a class="nav-link" href="training.php"><i class="fas fa-clipboard"></i> Training Plans </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="price.php"><i class="fas fa-address-card"></i> Membership </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="profile.php" <?php
-                                                                if (!isset($_SESSION["uid"])) echo "style = 'display: none;'"
-                                                                ?>><i class="fas fa-user"></i> My Profile </a>
-                    </li>
-                </ul>
-                <!--Sign Up/Login Navbar-->
-                <div id="loginOrOut" class=ml-auto>
-                    <button id='logoutButton' class='btn btn-primary' type='submit' name='logout' <?php
-                                                                                                    if (!isset($_SESSION["uid"])) echo "style = 'display: none;'"
-                                                                                                    ?>>Logout</button>
-                    <ul class="nav navbar-nav" <?php
-                                                if (isset($_SESSION["uid"])) echo "style = 'display: none;'"
-                                                ?>>
+                <!--Collapsible Button-->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!--Navbar Links-->
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a href="join.php" class="nav-link"><span class="fas fa-user-plus"></span> Sign Up</a>
+                            <a class="nav-link" href="index.php"><i class="fas fa-home"></i> Home </a>
+                        </li>
+                        <!-- <li class="nav-item">
+                            <a class="nav-link" href="gyms.php"><i class="fas fa-map-marker"></i> Gyms </a>
+                        </li> -->
+                        <li class="nav-item active">
+                            <a class="nav-link" href="training.php"><i class="fas fa-clipboard"></i> Training Plans </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" data-toggle="modal" id="modalOpenButton" class="nav-link"><span class="fas fa-sign-in-alt"></span> Login</a>
+                            <a class="nav-link" href="price.php"><i class="fas fa-address-card"></i> Membership </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="profile.php" <?php
+                                                                    if (!isset($_SESSION["uid"])) echo "style = 'display: none;'"
+                                                                    ?>><i class="fas fa-user"></i> My Profile </a>
                         </li>
                     </ul>
+                    <!--Sign Up/Login Navbar-->
+                    <div id="loginOrOut" class=ml-auto>
+                        <button id='logoutButton' class='btn btn-primary' type='submit' name='logout' <?php
+                                                                                                        if (!isset($_SESSION["uid"])) echo "style = 'display: none;'"
+                                                                                                        ?>>Logout</button>
+                        <ul class="nav navbar-nav" <?php
+                                                    if (isset($_SESSION["uid"])) echo "style = 'display: none;'"
+                                                    ?>>
+                            <li class="nav-item">
+                                <a href="join.php" class="nav-link"><span class="fas fa-user-plus"></span> Sign Up</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" data-toggle="modal" id="modalOpenButton" class="nav-link"><span class="fas fa-sign-in-alt"></span> Login</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
+            </nav>
+
+            <!--Creating a log in Modal-->
+            <div id="logInModal" class="modal">
+
+                <!--Modal Content-->
+                <form id="loginForm" class="modal-content animate" action="login.php" method="post">
+                    <div class="imageContainer">
+                        <i id="loginImage" class="fas fa-users fa-2x"></i>
+                        <h4>Member Login</h2>
+                    </div>
+
+                    <div class="container">
+                        <div class="input-icons">
+                            <i id="i1" class="fas fa-user icons"></i>
+                            <input type="text" placeholder="Username" name="uName" required>
+                        </div>
+
+                        <div class="input-icons">
+                            <i id="i2" class="fas fa-lock icons"></i>
+                            <input type="password" placeholder="Password" name="pass" required>
+                        </div>
+
+                        <div id="buttonContainer">
+                            <button id="loginButton" class="btn btn-primary" type="submit" name="login_submit">Login</button> <br>
+                        </div>
+
+                        <input id="rememberMe" type="checkbox" checked="checked" name="remember"> Remember
+
+                        <span id="closeButton" class="modal-close">X</span>
+
+                    </div>
+                </form>
             </div>
-        </nav>
 
-        <!--Creating a log in Modal-->
-        <div id="logInModal" class="modal">
-
-            <!--Modal Content-->
-            <form id="loginForm" class="modal-content animate" action="login.php" method="post">
-                <div class="imageContainer">
-                    <i id="loginImage" class="fas fa-users fa-2x"></i>
-                    <h4>Member Login</h2>
-                </div>
-
-                <div class="container">
-                    <div class="input-icons">
-                        <i id="i1" class="fas fa-user icons"></i>
-                        <input type="text" placeholder="Username" name="uName" required>
-                    </div>
-
-                    <div class="input-icons">
-                        <i id="i2" class="fas fa-lock icons"></i>
-                        <input type="password" placeholder="Password" name="pass" required>
-                    </div>
-
-                    <div id="buttonContainer">
-                        <button id="loginButton" class="btn btn-primary" type="submit" name="login_submit">Login</button> <br>
-                    </div>
-
-                    <input id="rememberMe" type="checkbox" checked="checked" name="remember"> Remember
-
-                    <span id="closeButton" class="modal-close">X</span>
-
-                </div>
-            </form>
-        </div>
-
-        <!--Header Image-->
-        <div class="row">
+            <!--Header Image-->
+            <!-- <div class="row">
             <img id="headerImage" class="col-12 img-fluid" src="gymheader2.jpg" alt="Personal Trainer">
+        </div> -->
         </div>
         <div class="row call-to-action bg-dark" <?php
                                                 if (isset($_SESSION["uid"])) echo "style = 'display: none;'"
                                                 ?>>
             <h5>Start your Journey Now!</h5>
-            <a class = "btn btn-primary btn-margin" id="joinLink" href="join.php">Join now</a>
+            <a class="btn btn-primary btn-margin" id="joinLink" href="join.php">Join now</a>
         </div>
     </header>
     <main>
-    <section class="container" id="coachSection">
+        <section class="container" id="coachSection">
             <h3 id="sectionTitle2">Personal Trainers</h3>
             <hr id="sectionLine">
             <div class="row">
@@ -130,9 +132,9 @@ session_start();
                             <p class="card-text">- BSc Sport Science<br>- Level 3 Personal Trainer</p>
                         </div>
                         <div class="card-footer">
-                            <i class = "fab fa-twitter"></i>
-                            <i class = "fab fa-instagram-square"></i>
-                            <i class = "fab fa-facebook"></i>
+                            <i class="fab fa-twitter"></i>
+                            <i class="fab fa-instagram-square"></i>
+                            <i class="fab fa-facebook"></i>
                         </div>
                     </div>
                 </div>
@@ -145,9 +147,9 @@ session_start();
                             <p class="card-text">- BSc Sports Coaching<br>- Level 3 Personal Trainer</p>
                         </div>
                         <div class="card-footer">
-                            <i class = "fab fa-twitter"></i>
-                            <i class = "fab fa-instagram-square"></i>
-                            <i class = "fab fa-facebook"></i>
+                            <i class="fab fa-twitter"></i>
+                            <i class="fab fa-instagram-square"></i>
+                            <i class="fab fa-facebook"></i>
                         </div>
                     </div>
                 </div>
@@ -160,9 +162,9 @@ session_start();
                             <p class="card-text">- BSc Sport and Exercise Science<br>- Level 2 Personal Trainer</p>
                         </div>
                         <div class="card-footer">
-                            <i class = "fab fa-twitter"></i>
-                            <i class = "fab fa-instagram-square"></i>
-                            <i class = "fab fa-facebook"></i>
+                            <i class="fab fa-twitter"></i>
+                            <i class="fab fa-instagram-square"></i>
+                            <i class="fab fa-facebook"></i>
                         </div>
                     </div>
                 </div>
@@ -175,59 +177,59 @@ session_start();
                             <p class="card-text">- BSc Sports Performance <br>- Level 2 Personal Trainer</p>
                         </div>
                         <div class="card-footer">
-                            <i class = "fab fa-twitter"></i>
-                            <i class = "fab fa-instagram-square"></i>
-                            <i class = "fab fa-facebook"></i>
+                            <i class="fab fa-twitter"></i>
+                            <i class="fab fa-instagram-square"></i>
+                            <i class="fab fa-facebook"></i>
                         </div>
                     </div>
                 </div>
 
-        <section class="container" id="trainingSection">
-            <h3 id="sectionTitle2">Training Plans</h3>
-            <hr id="sectionLine">
-            <div class="row">
-                <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-                    <div class="card">
-                        <img class="card-img-top" src="strength.jpg" alt="strength training">
-                        <div class="card-body">
-                            <h5 class="card-title">Strength & Conditioning</h4>
-                            <p class="card-text">Our coaches offer Personalised training programs that are aimed at increasing strength and hypertrophy</p>
+                <section class="container" id="trainingSection">
+                    <h3 id="sectionTitle2">Training Plans</h3>
+                    <hr id="sectionLine">
+                    <div class="row">
+                        <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+                            <div class="card">
+                                <img class="card-img-top" src="strength.jpg" alt="strength training">
+                                <div class="card-body">
+                                    <h5 class="card-title">Strength & Conditioning</h4>
+                                        <p class="card-text">Our coaches offer Personalised training programs that are aimed at increasing strength and hypertrophy</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+                            <div class="card">
+                                <img class="card-img-top" src="pilates.jpg" alt="Yoga and Pilates">
+                                <div class="card-body">
+                                    <h5 class="card-title">Yoga and Pilates</h4>
+                                        <p class="card-text">There are multiple yoga and pilates classes available throughout the week, perfect for improving flexibility and posture </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+                            <div class="card">
+                                <img class="card-img-top" src="cardio.jpg" alt="Cardio">
+                                <div class="card-body">
+                                    <h5 class="card-title">Cardio</h4>
+                                        <p class="card-text"> There are a number of coach led sessions and training plans with a range wide of cardio equipment such as treadmills and cycling machines </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+                            <div class="card">
+                                <img class="card-img-top" src="flex.jpg" alt="Flexibility">
+                                <div class="card-body">
+                                    <h5 class="card-title">Flexibility</h4>
+                                        <p class="card-text"> Our coaches have detailed knowledge and offer a range of interventions and techniques to improve flexibility and help prevent injuries </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-                    <div class="card">
-                        <img class="card-img-top" src="pilates.jpg" alt="Yoga and Pilates">
-                        <div class="card-body">
-                            <h5 class="card-title">Yoga and Pilates</h4>
-                            <p class="card-text">There are multiple yoga and pilates classes available throughout the week, perfect for improving flexibility and posture </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-                    <div class="card">
-                        <img class="card-img-top" src="cardio.jpg" alt="Cardio">
-                        <div class="card-body">
-                            <h5 class="card-title">Cardio</h4>
-                            <p class="card-text"> There are a number of coach led sessions and training plans with a range wide of cardio equipment such as treadmills and cycling machines </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-                    <div class="card">
-                        <img class="card-img-top" src="flex.jpg" alt="Flexibility">
-                        <div class="card-body">
-                            <h5 class="card-title">Flexibility</h4>
-                            <p class="card-text"> Our coaches have detailed knowledge and offer a range of interventions and techniques to improve flexibility and help prevent injuries </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </section>
+                </section>
     </main>
 
     <!-- Bootstrap JS -->

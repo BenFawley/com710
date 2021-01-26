@@ -7,14 +7,6 @@ html,body
     overflow-x: hidden; 
 }
 
-#headerImage{
-    height: 60vh;
-    padding: 0px;
-    margin: 0px;
-    /* padding-top: 20px; */
-    width: 100%;
-}
-
 .call-to-action{
     align-items: center;
     color: white;
@@ -83,15 +75,6 @@ input[type=text], input[type=password]{
     display: inline-block;
     border: 1px solid black;
 }
-
-/* #sign_up_form input[type=text], #sign_up_form input[type=password]{
-    width: 100%;
-    padding: 10px;
-    text-align: center;
-    margin: 8px auto;
-    display: inline-block;
-    border: 1px solid black;
-} */
 
 .modal-close{
     position: absolute;
@@ -422,7 +405,16 @@ i.icon{
     .hero-text p{
         display: none;
     }
+    .image-header{
+        height: 60vh;
+    }
 }
+
+/* @media only screen and (max-width: 768px){
+    .image-header{
+        height: 60vh;
+    }
+} */
 
 i.fa-facebook{
     color: #3b5998;
@@ -443,4 +435,13 @@ i.fa-twitter{
 #profile-buttons{
     padding-bottom: 40px;
     text-align: right;
+}
+
+.header-image{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.5)), url("gymheader.jpg");
+    height: 80vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
 }
